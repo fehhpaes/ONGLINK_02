@@ -12,46 +12,15 @@ import '@/src/app/CSS/header_alt.css'
 import '@/src/app/CSS/menu.css'
 import '@/src/app/CSS/main.css'
 import '@/src/app/CSS/body.css'
+import Header_home from "@/src/app/components/header_home"
 
 
 export default function Product() {
-    return (
+
+  return (
         <>
         
-                {/*<!--Header-->*/}
-                
-            <div className="py-3 mb-3 border-bottom" id="header_header">
-              <div className="container-fluid d-grid gap-3 align-items-center">
-                <div className="d-flex align-items-center" id="div_header">
-                  
-                  <Link href=""><Image src={logo_onglink_01} alt="Logo ONGLink" width="100" height={100} id="logo_onglink"></Image></Link>
-                  <form className="w-100 me-3" role="search">
-                  </form>
-        
-                  <div id="botoes_cadastro">
-                    <Link href="cadastro_1.html"><Button variant="success"> Cadastre-se</Button></Link>
-                    <Link href="login.html"><Button variant="success">Login</Button></Link>
-                  </div>
-        
-                </div>
-              </div>
-            </div>
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+        <Header_home/>
         
         
             <main className="main_home">
