@@ -1,3 +1,4 @@
+"use client";
 import logo_onglink_01 from '@/src/app/img/LOGO_ONGLINK_1.png'
 import Image from "next/image"
 import Link from 'next/link'
@@ -15,11 +16,13 @@ export default function Header_home () {
               <div className="container-fluid d-grid gap-3 align-items-center">
                 <div className="d-flex align-items-center" id="div_header">
                   
-                    <Image className="border" src={logo_onglink_01} 
-                        alt="Logo ONGLink"
-                        width={130}
-                        id="logo_onglink">
-                    </Image>
+                    <Link href="/">
+                      <Image className="border" src={logo_onglink_01} 
+                          alt="Logo ONGLink"
+                          width={130}
+                          id="logo_onglink">
+                      </Image>
+                    </Link>
                     
                   <form className="w-100 me-3" role="search">
                   </form>

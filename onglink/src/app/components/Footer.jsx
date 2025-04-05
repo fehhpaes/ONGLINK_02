@@ -1,4 +1,5 @@
 // components/Footer.js
+"use client";
 import Link from 'next/link';
 import Image from 'next/image';
 import logo_onglink_01 from '@/src/app/img/LOGO_ONGLINK_1.png'
@@ -6,11 +7,18 @@ import logo_muxn from '@/src/app/img/MUXN_logo1.png'
 import logo_instagram from '@/src/app/img/icons/instagram_6422200.png'
 import logo_twitter from '@/src/app/img/icons/twitter_5968830.png'
 import logo_facebook from '@/src/app/img/icons/social_12942738.png'
+import "@/src/app/CSS/footer.css"
+import { useRouter } from 'next/navigation';
+import { Button, Form } from 'react-bootstrap';
+
 
 export default function Footer() {
-  return (
-    <footer className="bg-header py-12 px-4 md:px-8">
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+  
+    const router = useRouter();
+  
+    return (
+    <footer className="bg-header py-12 px-4 md:px-8" id='footer'>
+      <div id='div_footer' className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Coluna 1 - Vazia ou para outros elementos */}
             <div id="logos"className="flex">
                 <div>
@@ -35,21 +43,29 @@ export default function Footer() {
 
             </div>
             {/* Coluna 2 - Links rápidos */}
-            <div>
+            <div id='div_ul'>
             
-            <ul className="space-y-2 text-center">
+            <ul id= 'ul_footer' className="space-y-2 text-center">
                 <li>
-                <Link href="/legislacao" className="text-white hover:text-blue-600 transition-colors">
+                <Link 
+                    onClick={() => {router.push("/legislacao")}}
+                    href="/legislacao" className="text-white hover:text-blue-600 transition-colors">
                     Legislação
                 </Link>
                 </li>
+
                 <li>
-                <Link href="/nossa-historia" className="text-white hover:text-blue-600 transition-colors">
+                <Link 
+                    onClick={() => {router.push("/nossa_historia")}}
+                    href="/nossa_historia" className="text-white hover:text-blue-600 transition-colors">
                     Nossa história
                 </Link>
                 </li>
+
                 <li>
-                <Link href="/parceiros" className="text-white hover:text-blue-600 transition-colors">
+                <Link 
+                    onClick={() => {router.push("/parceiros")}}
+                    href="/parceiros" className="text-white hover:text-blue-600 transition-colors">
                     Parceiros
                 </Link>
                 </li>
@@ -63,18 +79,18 @@ export default function Footer() {
                 Receba as modalidades diretamente pelo seu email.
             </p>
             <form className="flex flex-row space-y-3 ">
-                <input
+                <Form.Control
                 type="email"
                 placeholder="Email address"
                 className="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white w-45"
                 required
                 />
-                <button
-                type="submit"
+                <Button
+                variant='primary'
                 className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors w-24 h-10 text-center ml-2 mr-2"
                 >
                 Subscribe
-                </button>
+                </Button>
             </form>
             </div>
 
