@@ -105,8 +105,7 @@ body
 
 #div_nossos_parceiros
 {
-    padding-top: 30px;
-    padding-bottom: 30px;
+
     color: white;
 }
 
@@ -117,13 +116,17 @@ body
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 400px;
+    height: 450px;
+    padding-top: 80px;
+    padding-bottom: 80px;
 }
 
 #div_nossos_parceiros h3
 {
     height: 60px;
     width: 30%;
+    margin-top: 20px;
+    padding: 20px;
     text-align: center;
     border-radius: 50px;
     background-color: #2b3710c4;

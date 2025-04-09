@@ -72,7 +72,7 @@ export default function Product() {
         
               <div className="b-example-divider"></div>
         
-              <div className="container-fluid" id="div_nossos_parceiros">
+              <div id="div_nossos_parceiros">
         
                 <div id="sub_div_apoiadores">
                     <h3>Nossos Parceiros:</h3>
@@ -89,7 +89,6 @@ export default function Product() {
               </div>
         
           
-              <div className="b-example-divider"></div>
               
             </main>
             
