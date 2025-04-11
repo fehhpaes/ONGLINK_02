@@ -50,15 +50,22 @@
     background-color: #2b3710c4;
     color: white;
     padding: 20px;
-    width: 600px;
+    width: 500px;
 }
 
-#texto_historia, #missao_valores
+#texto_historia
 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 20px;
+    padding-top: 20px;
+}
+
+#missao_valores
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #texto_historia h3, #header_missao
@@ -72,7 +79,7 @@
 
 #lista_missao
 {
-    padding-left: 40px
+    padding-left: 30px;
 }
 
 #lista_missao li

@@ -38,7 +38,7 @@ export default function Historia() {
         <div className="container-fluid" >
           
           <div id="fundo_navbar">
-            <div className="row">
+            
 
               <div className="col-12">
                 <nav id="navbar">
@@ -50,7 +50,6 @@ export default function Historia() {
                 </nav>
               </div>
 
-            </div>
           </div>
 
           <div id="sub_div_historia">

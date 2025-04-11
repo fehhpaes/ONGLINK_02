@@ -1,6 +1,7 @@
 'use client';
 import { useRouter } from 'next/navigation';
 import { useState, FormEvent } from 'react';
+import Header_home from "@/src/app/components/header_home"
 
 // Funções de validação
 const validarCPF = (cpf: string): boolean => {
@@ -149,6 +150,8 @@ const Cadastro_01 = () => {
   };
 
   return (
+    <>
+    <Header_home/>
     
     <main className="bg-verde2 min-h-screen flex items-center justify-center p-4 mt-4 mb-4">
       <div className="bg-white rounded-3xl border-4 p-6 w-full max-w-4xl">
@@ -396,6 +399,7 @@ const Cadastro_01 = () => {
         </form>
       </div>
     </main>
+    </>
   );
 };
 

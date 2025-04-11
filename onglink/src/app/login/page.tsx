@@ -25,55 +25,56 @@ export default function Login() {
       <Header_home/>
   
   
-      <main className="bg-green-700">
+      <main className="bg-verde2 min-h-screen flex items-center justify-center p-4 mt-4 mb-4">
         {/* <!--Main--> */}
         
-  
+      
                     {/*<!--Formulario de  cadastro de ONG--> */}
+      <div className="bg-white rounded-3xl border-4 p-6 w-full max-w-4xl">
+
         <div className="m-4" id="div_login">
           <h1>Faça seu Login</h1>
              
           
           {/* <!--Divisão email/senha--> */}
-        <div className="rowlogin">
-            <div id="div_email">
-              <Form.Label for="email">Digite seu e-mail:</Form.Label>
-              <p></p>
-              <Form.Control type="text" name="nemail" id="email" ></Form.Control>
+          <div className="rowlogin">
+              <div id="div_email">
+                <Form.Label for="email">Digite seu e-mail:</Form.Label>
+                <p></p>
+                <Form.Control type="text" name="nemail" id="email" ></Form.Control>
+              </div>
+          </div>
+
+            <div className="rowlogin">
+              <div id="div_senha">
+                <Form.Label for="senha">Digite Senha:</Form.Label>
+                <Form.Control type="text" name="senha" id="senha" ></Form.Control>
+                <a href="recuperar_senha.html">Esqueci minha senha</a>
+              </div>
             </div>
+    
+            <div className="rowlogin">
+              <div className="col-1"></div>
+              <div className="col-10" id="div_esqueci">
+                
+              </div>
+              <div className="col-1"></div>
+            </div>
+    
+    
+          <div className="row" id="div_entrar">
+            <div className="col-1"> </div>
+    
+            <div className="col-10" id="div_btn_entrar">
+            
+              <Button id="btn_entrar" variant="success"><a href="publicacao.html">Entrar</a></Button>
+            </div>
+          </div>
+
         </div>
 
-          <div className="rowlogin">
-            <div id="div_senha">
-              <Form.Label for="senha">Digite Senha:</Form.Label>
-              <Form.Control type="text" name="senha" id="senha" ></Form.Control>
-              <a href="recuperar_senha.html">Esqueci minha senha</a>
-            </div>
-          </div>
-  
-          <div className="rowlogin">
-            <div className="col-1"></div>
-            <div className="col-10" id="div_esqueci">
-              
-            </div>
-            <div className="col-1"></div>
-          </div>
-  
-        
-  
-        
-  
-        <div className="row" id="div_entrar">
-          <div className="col-1"> </div>
-  
-          <div className="col-10" id="div_btn_entrar">
-          
-            <Button id="btn_entrar" variant="success"><a href="publicacao.html">Entrar</a></Button>
-          </div>
-          <div className="col-5">        </div>
-        </div>
-        </div>
-        
+      </div>
+
       </main>
 
       </>

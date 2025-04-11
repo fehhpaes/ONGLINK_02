@@ -1,4 +1,4 @@
-main
+#main_legislacao
 {
     background-image: url("https://images.pexels.com/photos/957024/forest-trees-perspective-bright-957024.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
     background-repeat: no-repeat;
@@ -33,6 +33,11 @@ main
     font-weight: 700;
 }
 
+#fundo_main .col-6
+{
+    margin-top: 20px;
+}
+
 #fundo_navbar
 {
     padding: 20px;
@@ -56,7 +61,9 @@ main
 #fundo_main
 {
     background-color: #283903a6;
-    padding: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 20px;
 }
 
 #texto_leidobem h2
@@ -78,6 +85,18 @@ main
     padding: 20px;
 }
 
+#img_leidobem
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#img_leidobem img
+{
+    padding-top: 10px;
+}
+
 #texto_leidobem
 {
     display: flex;
@@ -91,6 +110,7 @@ main
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
 }
 
 #paragrafo2

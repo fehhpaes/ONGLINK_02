@@ -29,58 +29,61 @@ export default function Parceiros() {
        <Header_home/>
 
 
-    <main>
+    
       {/* <!--Main--> */}
       
+      <main id="main_parceiros">
 
-    {/* <!--Formulario de  cadastro de ONG--> */}
-      <div className="container-fluid" id="div_cad_ong_tela_1">
+        <div className="container-fluid" id="div_cad_ong_tela_1">
 
-        <div id="fundo_navbar">
-          <div className="row">
+          <div id="fundo_navbar">
+            <div className="row">
 
-            <div className="col-12">
-              <nav id="navbar">
-                <ul>
-                  <Link href="/legislacao"><li>Legislação</li></Link>
-                  <Link href="/nossa_historia"><li>Nossa História</li></Link>
-                  <Link href="/parceiros"><li className="bg-green-700">Parceiros</li></Link>
-                </ul>
-              </nav>
+              <div className="col-12">
+                <nav id="navbar">
+                  <ul>
+                    <Link href="/legislacao"><li>Legislação</li></Link>
+                    <Link href="/nossa_historia"><li>Nossa História</li></Link>
+                    <Link href="/parceiros"><li className="bg-green-700">Parceiros</li></Link>
+                  </ul>
+                </nav>
+              </div>
+
             </div>
-
           </div>
-        </div>
-
-        
-      </div>
 
 
-        <div id="div_parceiros">
 
-          <div className="container-fluid" id="sub_div_parceiros">
+            <div id="div_parceiros">
               
-              <h2>Nossas Empresas parceiras:</h2>
+              <div className="row">
 
-              <div id="img_empresas">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAxmdfTkAvl8uqvjj8M3TUV-n9SkBSZL0kTVOpfRUxaI9X1LtKlfUiOfmHchqZoBkIs-M&usqp=CAU" alt="Empresa 1" width="200" height="200"></img>
-                <img src="https://img.freepik.com/vector-premium/logotipo-comercializacion-venta_712682-3297.jpg" alt="Empresa 2" width="200" height="200"></img>
-                <img src="https://img.freepik.com/vetores-premium/modelo-do-logotipo-da-caixa-do-estudio_10399-28.jpg" alt="Empresa 3" width="200" height="200"></img>
-                <img src="https://img.freepik.com/vetores-premium/logotipo-da-empresa_7436-14.jpg" alt="Empresa 4" width="200" height="200"></img>
-                <img src="https://img.freepik.com/vetores-gratis/modelo-de-logotipo-de-dados-gradiente_23-2149200604.jpg" alt="Empresa 5" width="200" height="200"></img>
+                <div className="container-fluid" id="sub_div_parceiros">
+                    
+                    <h2>Nossas Empresas parceiras:</h2>
+
+                    <div id="img_empresas">
+                      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAxmdfTkAvl8uqvjj8M3TUV-n9SkBSZL0kTVOpfRUxaI9X1LtKlfUiOfmHchqZoBkIs-M&usqp=CAU" alt="Empresa 1" width="200" height="200"></img>
+                      <img src="https://img.freepik.com/vector-premium/logotipo-comercializacion-venta_712682-3297.jpg" alt="Empresa 2" width="200" height="200"></img>
+                      <img src="https://img.freepik.com/vetores-premium/modelo-do-logotipo-da-caixa-do-estudio_10399-28.jpg" alt="Empresa 3" width="200" height="200"></img>
+                      <img src="https://img.freepik.com/vetores-premium/logotipo-da-empresa_7436-14.jpg" alt="Empresa 4" width="200" height="200"></img>
+                      <img src="https://img.freepik.com/vetores-gratis/modelo-de-logotipo-de-dados-gradiente_23-2149200604.jpg" alt="Empresa 5" width="200" height="200"></img>
+                    </div>
+
+
+                    <h2>Nossas ONGs parceiras:</h2>
+
+                    <div id="img_ONG">
+                      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQrkoeJbwTgN-guIzwse1GukoRDQxnwLOb6Q&s" alt="ONG 1" width="200" height="200"></img>
+                      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQK5BHvoSw8GrviF5fAAR_lglGGMb3A9PLPVQ&s" alt="ONG 2" width="200" height="200"></img>
+                      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGfY25pju0v7n79WHdaRlniPJ89Sr_5rIqzQ&s" alt="ONG 3" width="200" height="200"></img>
+                      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmv4arjlMrbmy2F_BCHREuzBG7hA0KbzCTzw&s" alt="ONG 4" width="200" height="200"></img>
+                      <img src="https://logowik.com/content/uploads/images/ong38254.logowik.com.webp" alt="ONG 5" width="200" height="200"></img>
+                    </div>
+                </div>
+
               </div>
-
-
-              <h2>Nossas ONGs parceiras:</h2>
-
-              <div id="img_ONG">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQrkoeJbwTgN-guIzwse1GukoRDQxnwLOb6Q&s" alt="ONG 1" width="200" height="200"></img>
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQK5BHvoSw8GrviF5fAAR_lglGGMb3A9PLPVQ&s" alt="ONG 2" width="200" height="200"></img>
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGfY25pju0v7n79WHdaRlniPJ89Sr_5rIqzQ&s" alt="ONG 3" width="200" height="200"></img>
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmv4arjlMrbmy2F_BCHREuzBG7hA0KbzCTzw&s" alt="ONG 4" width="200" height="200"></img>
-                <img src="https://logowik.com/content/uploads/images/ong38254.logowik.com.webp" alt="ONG 5" width="200" height="200"></img>
-              </div>
-          </div>
+            </div>
 
         </div>
     
