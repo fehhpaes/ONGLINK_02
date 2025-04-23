@@ -2,9 +2,13 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import logo_onglink_01 from '@/src/app/img/LOGO_ONGLINK_1.png'
+import { useRouter } from 'next/navigation';
 
 
 export default function HeaderCadastro(){
+
+  const router = useRouter();
+
     return(
 
         <header className="bg-header ">
@@ -15,6 +19,8 @@ export default function HeaderCadastro(){
               width={130} // Largura em pixels
               height={130} // Altura em pixels
               className="shadow-md border border-white"
+
+              onClick={() => {router.push("/")}}
             />
           </div>
       </header>

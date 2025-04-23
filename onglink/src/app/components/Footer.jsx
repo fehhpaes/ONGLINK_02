@@ -78,16 +78,16 @@ export default function Footer() {
             <p className="text-white mb-4">
                 Receba as modalidades diretamente pelo seu email.
             </p>
-            <form className="flex flex-row space-y-3 ">
+            <form className="" id='form_footer'>
                 <Form.Control
                 type="email"
                 placeholder="Email address"
-                className="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white w-45"
+                className=""
                 required
                 />
                 <Button
                 variant='primary'
-                className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors w-24 h-10 text-center ml-2 mr-2"
+                className=""
                 >
                 Subscribe
                 </Button>
@@ -100,12 +100,11 @@ export default function Footer() {
       <div id="div_infos_redes_sociais" className="max-w-6xl mx-auto mt-12 pt-6 border-t border-gray-200 text-center flex">
 
         {/* Rodapé inferior */}
-        <div className="max-w-6xl mx-auto text-center text-white">
+        <div id='div_Copyright' className="ml-10 text-white">
             <p>© 2024 MUXN Company, Inc. All rights reserved.</p>
         </div>
-        <div id="redes_sociais" className="inline-flex object-right">
 
-                <div>
+            <div id='div_redes_sociais'>
                 <Image src={logo_twitter}
                 alt="Logo Twitter"
                 width={24} // Largura em pixels
@@ -113,9 +112,8 @@ export default function Footer() {
                 className="shadow-md ml-4 mt-1 mb-7">
                 
                 </Image>
-                </div>
-
-                <div>
+                
+                
                 <Image src={logo_instagram}
                     alt="Logo Twitter"
                     width={24} // Largura em pixels
@@ -123,9 +121,8 @@ export default function Footer() {
                     className="shadow-md ml-4 mt-1 mb-7">
                     
                 </Image>
-                </div>
-
-                <div>
+                
+                
                 <Image src={logo_facebook}
                     alt="Logo Twitter"
                     width={24} // Largura em pixels
@@ -133,9 +130,10 @@ export default function Footer() {
                     className="shadow-md ml-4 mt-1 mb-7">
                     
                 </Image>
-                </div>
             </div>
-          </div>
+        
+      </div>
+
     </footer>
   );
 }

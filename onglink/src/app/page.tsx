@@ -60,7 +60,7 @@ export default function Product() {
                                   Venha fazer parte da ONGLink!
                                 </h4>
         
-                                <a href="cadastro_1.html"> <button className="btn btn-success" id="btn_main1"> Cadastre sua Organização! </button></a>
+                                <Link href={"/Cadastro_01"}><Button variant= "success" id="btn_main1"> Cadastre sua Organização! </Button></Link>
                               </div>
                       </Col>
                   </Row>

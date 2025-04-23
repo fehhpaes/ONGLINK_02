@@ -74,7 +74,7 @@ export default function Historia() {
              </div>     
 
               <div id="video_pitch">
-                <iframe width="500" height="300" src=""></iframe>
+                <iframe width="500" height="300"></iframe>
               </div>
 
            </div>

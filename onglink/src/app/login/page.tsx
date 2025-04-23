@@ -39,7 +39,7 @@ export default function Login() {
           {/* <!--Divisão email/senha--> */}
           <div className="rowlogin">
               <div id="div_email">
-                <Form.Label for="email">Digite seu e-mail:</Form.Label>
+                <Form.Label htmlFor="email">Digite seu e-mail:</Form.Label>
                 <p></p>
                 <Form.Control type="text" name="nemail" id="email" ></Form.Control>
               </div>

@@ -11,6 +11,7 @@
     width: 250px;
     height: 30px;
     border-radius: 30px;
+    font-weight: 700;
     padding: 20px;
     display: flex;
     align-items: center;
@@ -21,7 +22,6 @@
 {
     background-color: oklch(52.7% .154 150.069);
     color: #48f718;
-    font-weight: 700;
 }
 
 #fundo_navbar
@@ -41,7 +41,6 @@
     list-style-type: none;
     padding: 0px;
     margin-bottom: 0px;
-    font-size: large;
 }
 
 

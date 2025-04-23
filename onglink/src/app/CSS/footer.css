@@ -16,6 +16,25 @@ container, #redes_sociais{
     
 }
 
+#div_infos_redes_sociais {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+}
+
+#div_redes_sociais{
+  margin-left: 610px;
+  display: flex;
+}
+
+#form_footer {
+  display: flex;
+}
+
+#form_footer button{
+  margin-left: 20px;
+}
+
 #ul_footer {
   margin-bottom: 0;
   margin-top: 30px;
@@ -23,6 +42,7 @@ container, #redes_sociais{
 
 #footer {
   padding-bottom: 0;
+  padding-top: 30px;
 }
 
 #redes_sociais{
