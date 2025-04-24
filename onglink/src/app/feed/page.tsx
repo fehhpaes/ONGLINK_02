@@ -1,4 +1,4 @@
-// "use client";
+"use client";
 // import './styles/header_alt.css';
 // import './styles/menu.css';
 // import './styles/main.css';
@@ -6,11 +6,29 @@
 // import './styles/body.css';
 import "bootstrap/dist/css/bootstrap.min.css";
 import Image from "next/image";
-import logo_muxn from '@/app/img/MUXN_logo1.png';
+import logo_muxn from '@/src/app/img/MUXN_logo1.png';
+import axios from "axios";
+import { useEffect, useState } from "react";
 // import "../styles/globals.css"; 
 
 
 export default function Home() {
+  
+  const [message, setMessage] = useState<string>();
+
+  useEffect(() => {
+
+    const getHello = async() => {
+        const response = await axios.get("http://localhost:3001");
+
+        setMessage (response.data);
+        console.log (response.data);
+    }
+
+    getHello();
+
+  }, []);
+
   return (
     <>
     <main className="bg-body-secondary p-2">
@@ -121,7 +139,7 @@ export default function Home() {
             </div>
                 
                          <div className="card-body">
-                          <h6 className="fw-bold">Bem vindo!</h6>
+                          <h6 className="fw-bold">{message}</h6>
                          <p>
                           Escrever é esquecer. 
                           A literatura é a maneira mais agradável de ignorar a vida. 
