@@ -71,9 +71,9 @@ export default function Home() {
                       </div>
                       <div>
                       <ul className="list-unstyled d-flex justify-content-center">
-                        <li className=""><a className="link-body-emphasis" href="https://x.com/?lang=pt-br"><image src="/img/icons/twitter_5968830.png" className="bi" width="24" height="24"></image></a></li> {/*<use xlink:href="#twitter"/>*/}
-                        <li className="ms-3"><a className="link-body-emphasis" href="https://www.instagram.com/"><image src="/img/icons/instagram_6422200.png" className="bi" width="24" height="24"></image></a></li>{/*<use xlink:href="#instagram"/>*/}
-                        <li className="ms-3"><a className="link-body-emphasis" href="https://www.facebook.com/"><image src="/img/icons/social_12942738.png" className="bi" width="24" height="24"></image></a></li>{/*<use xlink:href="#facebook"/>*/}
+                        <li className=""><a className="link-body-emphasis" href="https://x.com/?lang=pt-br"><img src="/img/icons/twitter_5968830.png" className="bi" width="24" height="24"></img></a></li> {/*<use xlink:href="#twitter"/>*/}
+                        <li className="ms-3"><a className="link-body-emphasis" href="https://www.instagram.com/"><img src="/img/icons/instagram_6422200.png" className="bi" width="24" height="24"></img></a></li>{/*<use xlink:href="#instagram"/>*/}
+                        <li className="ms-3"><a className="link-body-emphasis" href="https://www.facebook.com/"><img src="/img/icons/social_12942738.png" className="bi" width="24" height="24"></img></a></li>{/*<use xlink:href="#facebook"/>*/}
                       </ul>
                       </div>
                   
@@ -135,7 +135,7 @@ export default function Home() {
           <div className="d-flex" >
             {/* <!-- LOGO/IMAGEM --> */}
             <div className="avatar avatar-xs me-2">
-            <a href="#"> <image className="avatar-img rounded-circle" src="./img/MUXN_logo1.png" alt="" width="60"></image> </a>
+            <a href="#"> <img className="avatar-img rounded-circle" src="./img/MUXN_logo1.png" alt="" width="60"></img> </a>
             </div>
                 
                          <div className="card-body">
@@ -188,7 +188,7 @@ export default function Home() {
           <div className="d-flex">
                 {/* <!-- LOGO/IMAGEM --> */}
             <div className="avatar avatar-xs me-2">
-              <a href="#"> <image className="avatar-img rounded-circle" src="https://images.pexels.com/photos/23551222/pexels-photo-23551222/free-photo-of-arara-caninde.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" width="60"></image> </a>
+              <a href="#"> <img className="avatar-img rounded-circle" src="https://imgs.pexels.com/photos/23551222/pexels-photo-23551222/free-photo-of-arara-caninde.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" width="60"></img> </a>
             </div>
             <div className="card-body">
               <h6 className="fw-bold">EM DEFESA AOS ANIMAIS, APOIE ESSA CAUSA!</h6>
