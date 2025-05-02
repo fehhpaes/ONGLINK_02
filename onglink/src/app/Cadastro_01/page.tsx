@@ -2,7 +2,8 @@
 import { useRouter } from 'next/navigation';
 import { useState, FormEvent } from 'react';
 import Header_cadastro from "@/src/app/components/header_cadastro"
-
+import Input from '../components/inputFormulario';
+import { CepResponse, getCepData } from '../services/cep';
 
 
 
@@ -81,7 +82,45 @@ const formatarCEP = (cep: string): string => {
     .substring(0, 9);
 };
 
+//tipo complementar que não vem na API do cep
+type FormEndereco = {
+  complemento?: string;
+  numero?: number;
+} & CepResponse;
+
+//Inicializar endereço com nenhuma informação
+const enderecoInicial = {
+  cep: "",
+  bairro: "",
+  complemento: "",
+  localidade: "",
+  numero: undefined,
+  uf: "",
+  logradouro: "",
+};
+
 const Cadastro_01 = () => {
+
+  //Função de interação com Endereço e CEP
+  const [endereco, setEndereco] = useState<FormEndereco>(enderecoInicial);
+  //const [enderecoResponse, setEnderecoResponse] = useState<CepResponse>();
+
+  async function buscarCep(cep:string) {
+      try{
+          const cepDados = await getCepData(cep);
+          setEndereco({...endereco, ...cepDados});
+      //    setEnderecoResponse(cepDados);
+      } catch (error){
+          setEndereco({...enderecoInicial});
+      //    setEnderecoResponse(undefined);
+          console.log(error);
+      }finally{
+          console.log("foi");
+      }
+  }
+
+
+  //Validar
   const router = useRouter();
   const [errors, setErrors] = useState<Record<string, string>>({});
 
@@ -167,31 +206,21 @@ const Cadastro_01 = () => {
               <label htmlFor="razao_social" className="block mb-1 ">
                 Razão Social <span className="text-red-500">*</span>
               </label>
-              <input 
-                type="text" 
-                id="razao_social" 
-                name="razao_social" 
-                className={`border rounded w-full p-2 ${errors.razao_social ? 'border-red-500' : 'border-gray-300'}`}
+              <Input
+                name="razao_social"
+                placeholder="Nome Social"
+                type="text"
+                value=""  
+                className={`border rounded w-full p-2 ${errors.razao_social ? 'border-red-500' : 'border-gray-300'}`}     
               />
+              
               {errors.razao_social && <p className="text-red-500 text-sm">{errors.razao_social}</p>}
             </div>
 
             {/* Email e CNPJ */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-              <div>
-                <label htmlFor="email" className="block mb-1">
-                  Email <span className="text-red-500">*</span>
-                </label>
-                <input 
-                  type="email" 
-                  id="email" 
-                  name="email" 
-                  placeholder='exemplo@exemplo.com'
-                  className={`border rounded w-full p-2 ${errors.email ? 'border-red-500' : 'border-gray-300'}`}
-                />
-                {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
-              </div>
 
+              {/* CNPJ */}
               <div>
                 <label htmlFor="cnpj" className="block mb-1">
                   CNPJ <span className="text-red-500">*</span>
@@ -207,144 +236,28 @@ const Cadastro_01 = () => {
                 />
                 {errors.cnpj && <p className="text-red-500 text-sm">{errors.cnpj}</p>}
               </div>
+              
+              {/* Email */}
+              <div>
+                <label htmlFor="email" className="block mb-1">
+                  Email <span className="text-red-500">*</span>
+                </label>
+                <Input
+                    name="email"
+                    placeholder="exemplo@email.com"
+                    type="email"
+                    value=""
+                  className={`border rounded w-full p-2 ${errors.email ? 'border-red-500' : 'border-gray-300'}`}
+                />
+                {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
+              </div>
+
+              
             </div>
 
-            {/* Pessoa Responsável e CPF */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-              <div>
-                <label htmlFor="pessoa_responsavel" className="block mb-1">
-                  Pessoa Responsável <span className="text-red-500">*</span>
-                </label>
-                <input 
-                  type="text" 
-                  id="pessoa_responsavel" 
-                  name="pessoa_responsavel" 
-                  className={`border rounded w-full p-2 ${errors.pessoa_responsavel ? 'border-red-500' : 'border-gray-300'}`}
-                />
-                {errors.pessoa_responsavel && <p className="text-red-500 text-sm">{errors.pessoa_responsavel}</p>}
-              </div>
-
-              <div>
-                <label htmlFor="cpf" className="block mb-1">
-                  CPF <span className="text-red-500">*</span>
-                </label>
-                <input 
-                  type="text" 
-                  id="cpf" 
-                  name="cpf" 
-                  placeholder="000.000.000-00"
-                  maxLength={14}
-                  onChange={handleCpfChange}
-                  className={`border rounded w-full p-2 ${errors.cpf ? 'border-red-500' : 'border-gray-300'}`}
-                />
-                {errors.cpf && <p className="text-red-500 text-sm">{errors.cpf}</p>}
-              </div>
-            </div>
-
-            {/* Endereço e Complemento */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-              <div>
-                <label htmlFor="endereco" className="block mb-1">
-                  Endereço Principal <span className="text-red-500">*</span>
-                </label>
-                <input 
-                  type="text" 
-                  id="endereco" 
-                  name="endereco" 
-                  className={`border rounded w-full p-2 ${errors.endereco ? 'border-red-500' : 'border-gray-300'}`}
-                />
-                {errors.endereco && <p className="text-red-500 text-sm">{errors.endereco}</p>}
-              </div>
-
-              <div>
-                <label htmlFor="complemento" className="block mb-1">
-                  Complemento 
-                </label>
-                <input 
-                  type="text" 
-                  id="complemento" 
-                  name="complemento" 
-                  className={`border border-gray-300 rounded w-full p-2  `}
-                />
-                
-              </div>
-            </div>
-
-            {/* Cidade, Estado e CEP */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
-              <div>
-                <label htmlFor="cidade" className="block mb-1">
-                  Cidade <span className="text-red-500">*</span>
-                </label>
-                <input 
-                  type="text" 
-                  id="cidade" 
-                  name="cidade" 
-                  className={`border rounded w-full p-2 ${errors.cidade ? 'border-red-500' : 'border-gray-300'}`}
-                />
-                {errors.cidade && <p className="text-red-500 text-sm">{errors.cidade}</p>}
-              </div>
-
-              <div>
-                <label htmlFor="estado" className="block mb-1">
-                  Estado <span className="text-red-500">*</span>
-                </label>
-                <select 
-                  id="estado" 
-                  name="estado" 
-                  className={`border rounded w-full p-2 ${errors.estado ? 'border-red-500' : 'border-gray-300'}`}
-                >
-                  <option value="">Selecione o estado</option>
-                  <option value="AC">Acre</option>
-                  <option value="AL">Alagoas</option>
-                  <option value="AP">Amapá</option>
-                  <option value="AM">Amazonas</option>
-                  <option value="BA">Bahia</option>
-                  <option value="CE">Ceará</option>
-                  <option value="DF">Distrito Federal</option>
-                  <option value="ES">Espírito Santo</option>
-                  <option value="GO">Goiás</option>
-                  <option value="MA">Maranhão</option>
-                  <option value="MT">Mato Grosso</option>
-                  <option value="MS">Mato Grosso do Sul</option>
-                  <option value="MG">Minas Gerais</option>
-                  <option value="PA">Pará</option>
-                  <option value="PB">Paraíba</option>
-                  <option value="PR">Paraná</option>
-                  <option value="PE">Pernambuco</option>
-                  <option value="PI">Piauí</option>
-                  <option value="RJ">Rio de Janeiro</option>
-                  <option value="RN">Rio Grande do Norte</option>
-                  <option value="RS">Rio Grande do Sul</option>
-                  <option value="RO">Rondônia</option>
-                  <option value="RR">Roraima</option>
-                  <option value="SC">Santa Catarina</option>
-                  <option value="SP">São Paulo</option>
-                  <option value="SE">Sergipe</option>
-                  <option value="TO">Tocantins</option>
-                </select>
-                {errors.estado && <p className="text-red-500 text-sm">{errors.estado}</p>}
-              </div>
-
-              <div>
-                <label htmlFor="cep" className="block mb-1">
-                  CEP <span className="text-red-500">*</span>
-                </label>
-                <input 
-                  type="text" 
-                  id="cep" 
-                  name="cep" 
-                  placeholder="00000-000"
-                  maxLength={9}
-                  onChange={handleCEPChange}
-                  className={`border rounded w-full p-2 ${errors.cep ? 'border-red-500' : 'border-gray-300'}`}
-                />
-                {errors.cep && <p className="text-red-500 text-sm">{errors.cep}</p>}
-              </div>
-            </div>
-
-            {/* Telefones */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                        {/* Telefones */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+              {/* Telefone 1 */}
               <div>
                 <label htmlFor="telefone_01" className="block mb-1">
                   Telefone 1 <span className="text-red-500">*</span>
@@ -376,6 +289,185 @@ const Cadastro_01 = () => {
                 />
               </div>
             </div>
+
+            {/* Pessoa Responsável e CPF */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+              {/* Pessoa Responsável */}
+              <div>
+                <label htmlFor="pessoa_responsavel" className="block mb-1">
+                  Pessoa Responsável <span className="text-red-500">*</span>
+                </label>
+                <Input
+                  name="pessoa_responsavel"
+                  placeholder="Nome da pessoa"
+                  type="text"
+                  value=""
+                  className={`border rounded w-full p-2 ${errors.pessoa_responsavel ? 'border-red-500' : 'border-gray-300'}`}
+                />
+                {errors.pessoa_responsavel && <p className="text-red-500 text-sm">{errors.pessoa_responsavel}</p>}
+              </div>
+
+              {/* CPF */}
+              <div>
+                <label htmlFor="cpf" className="block mb-1">
+                  CPF <span className="text-red-500">*</span>
+                </label>
+                <input 
+                  type="text" 
+                  id="cpf" 
+                  name="cpf" 
+                  placeholder="000.000.000-00"
+                  maxLength={14}
+                  onChange={handleCpfChange}
+                  className={`border rounded w-full p-2 ${errors.cpf ? 'border-red-500' : 'border-gray-300'}`}
+                />
+                {errors.cpf && <p className="text-red-500 text-sm">{errors.cpf}</p>}
+              </div>
+            </div>
+
+            {/* Cidade, Estado e CEP */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+
+              {/* CEP */}
+              <div>
+                <label htmlFor="cep" className="block mb-1">
+                  CEP <span className="text-red-500">*</span>
+                </label>
+                <Input
+                  name="cep"
+                  placeholder="00000-000"
+                  type="text"
+                  value={endereco.cep}
+                  changeEvent={(value) => {
+                    const cep = value as string;
+                    setEndereco({ ...endereco, cep });
+                  }}
+                  blurEvent={() => {
+                    if (endereco.cep.length === 8) buscarCep(endereco.cep);
+                  }}
+                  
+                  className={`border rounded w-full p-2 ${errors.cep ? 'border-red-500' : 'border-gray-300'}`}
+                />
+                {errors.cep && <p className="text-red-500 text-sm">{errors.cep}</p>}
+              </div>
+
+              {/* Cidade */} 
+              <div>
+                <label htmlFor="cidade" className="block mb-1">
+                  Cidade <span className="text-red-500">*</span>
+                </label>
+                <Input
+                  name="cidade"
+                  placeholder=""
+                  type="text" 
+                  className={`border rounded w-full p-2 ${errors.cidade ? 'border-red-500' : 'border-gray-300'}`}
+                  value={endereco.localidade}
+                  changeEvent={(value) =>
+                  setEndereco({...endereco, localidade: value as string})
+                  }
+                />
+                {errors.cidade && <p className="text-red-500 text-sm">{errors.cidade}</p>}
+              </div>
+
+              {/* Estado */}
+              <div>
+                <label htmlFor="estado" className="block mb-1">
+                  Estado <span className="text-red-500">*</span>
+                </label>
+                <Input
+                  name="estado"
+                  placeholder="XX"
+                  type="text" 
+                  className={`border rounded w-full p-2 ${errors.estado ? 'border-red-500' : 'border-gray-300'}`}
+                  value={endereco.uf}
+                  changeEvent={(value) =>
+                      setEndereco({...endereco, uf: value as string})
+                  }
+                
+                />
+                  
+                {errors.estado && <p className="text-red-500 text-sm">{errors.estado}</p>}
+              </div>
+
+              
+            </div>
+
+
+            {/* Endereço e Numero */}
+            <div className="flex flex-cols-2 md:grid-cols-2 gap-4 mb-4 ">
+              {/* Endereço */}
+              <div className='w-full'>
+                <label htmlFor="endereco" className="block mb-1">
+                  Endereço Principal <span className="text-red-500">*</span>
+                </label>
+                <Input
+                  name="endereco"
+                  placeholder=""
+                  type="text" 
+                  className={`border rounded w-full p-2 ${errors.endereco ? 'border-red-500' : 'border-gray-300'}`}
+                  value={endereco?.logradouro ?? ""}
+                  changeEvent={(value) =>
+                      setEndereco({...endereco, logradouro: value as string})
+                  }
+                />
+                {errors.endereco && <p className="text-red-500 text-sm">{errors.endereco}</p>}
+              </div>
+
+
+
+              {/* Numero da Rua */}
+              <div className='w-25'>
+                <label htmlFor="num_rua" className="block mb-1">
+                Nº 
+                </label>
+                <Input
+                  name="num_rua"
+                  placeholder=""
+                  type="text"
+                  value="" 
+                  className={`border border-gray-300 rounded w-full p-2  `}
+                />
+                
+              </div>
+            </div>
+
+            {/* Bairro e Complemento */}      
+            <div className="grid grid-cols-2 md:grid-cols-2 gap-4 mb-4">
+              {/* Bairro */}            
+              <div>
+                <label htmlFor="bairro" className="block mb-1">
+                  Bairro
+                </label>
+                <Input
+                  name="bairro"
+                  placeholder=""
+                  type="text"
+                  value={endereco?.bairro ?? ""}
+                  changeEvent={(value) =>
+                  setEndereco({...endereco, bairro: value as string})
+                  }
+                  className={`border border-gray-300 rounded w-full p-2  `}
+                    /> 
+                </div>
+
+              {/* Complemento */}
+              <div>
+                <label htmlFor="complemento" className="block mb-1">
+                  Complemento 
+                </label>
+                <Input
+                  name="complemento"
+                  placeholder=""
+                  type="string"
+                  value="" 
+                  className={`border border-gray-300 rounded w-full p-2  `}
+                />
+                
+              </div>
+            </div>
+
+
+
 
             {/* Sobre a Empresa */}
             <div className="mb-6">
