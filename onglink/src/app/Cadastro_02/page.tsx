@@ -8,6 +8,7 @@ import logo_linkedin from '@/src/app/img/icons/linkedin_3536569.png'
 import { useState, useRef, ChangeEvent } from 'react';
 import { Button } from "react-bootstrap";
 import Header_cadastro from "@/src/app/components/header_cadastro"
+import Input from '../components/inputFormulario';
 
 const Cadastro_02 = () => {
     const [tipoCadastro, setTipoCadastro] = useState<number | null>(null);
@@ -99,12 +100,15 @@ const Cadastro_02 = () => {
                                     />
                                     <label htmlFor="campoInstagram" className="mt-1">Link do Instagram</label>
                                 </div>
-                                <input 
-                                    type="text" 
-                                    name="campoInstagram" 
-                                    id="campoInstagram" 
-                                    className="bg-white border rounded w-full p-2 border-gray-300 mb-3"
+                                <Input 
+                                name="campoInstagram" 
+                                type="text" 
+                                id="campoInstagram" 
+                                placeholder="Instagram"
+                                value=""
+                                className="bg-white border rounded w-full p-2 border-gray-300 mb-3"
                                 />
+                                
                             </div>
                             
                             {/* Facebook */}
@@ -118,12 +122,15 @@ const Cadastro_02 = () => {
                                     />
                                     <label htmlFor="campoFacebook" className="mt-1">Link do Facebook</label>
                                 </div>
-                                <input 
-                                    type="text" 
-                                    name="campoFacebook" 
-                                    id="campoFacebook" 
-                                    className="bg-white border rounded w-full p-2 border-gray-300 mb-3"
+                                <Input 
+                                name="campoFacebook" 
+                                type="text" 
+                                id="campoFacebook" 
+                                placeholder="Facebook"
+                                value=""
+                                className="bg-white border rounded w-full p-2 border-gray-300 mb-3"
                                 />
+                                
                             </div>
                             
                             {/* X (Twitter) */}
@@ -137,12 +144,15 @@ const Cadastro_02 = () => {
                                     />
                                     <label htmlFor="campoX" className="mt-1">Link do X</label>
                                 </div>
-                                <input 
-                                    type="text" 
-                                    name="campoX" 
-                                    id="campoX" 
-                                    className="bg-white border rounded w-full p-2 border-gray-300 mb-3"
+                                <Input 
+                                name="campoX" 
+                                type="text" 
+                                id="campoX" 
+                                placeholder="@"
+                                value=""
+                                className="bg-white border rounded w-full p-2 border-gray-300 mb-3"
                                 />
+                                
                             </div>
                             
                             {/* LinkedIn */}
@@ -156,12 +166,15 @@ const Cadastro_02 = () => {
                                     />
                                     <label htmlFor="campoLinkedin" className="mt-1">Link do LinkedIn</label>
                                 </div>
-                                <input 
-                                    type="text" 
-                                    name="campoLinkedin" 
-                                    id="campoLinkedin" 
-                                    className="bg-white border rounded w-full p-2 border-gray-300 mb-3"
+                                <Input 
+                                name="campoLinkedin" 
+                                type="text" 
+                                id="campoLinkedin" 
+                                placeholder="Linkedin"
+                                value=""
+                                className="bg-white border rounded w-full p-2 border-gray-300 mb-3"
                                 />
+                                
                             </div>
                         </div>
                         {/* Escolha Empresa ou ONG */}
@@ -333,8 +346,7 @@ const Cadastro_02 = () => {
                                     <label htmlFor="" className="mr-1 ml-3">Social</label>
                                     <input type="radio" name="escCausa" id="escCausa" value={5}/>
                                     
-                                    <label htmlFor="" className="mr-1 ml-3">Outro</label>
-                                    <input type="radio" name="escCausa" id="escCausa" />
+                                    
                                 </div>
 
                                 <Button className="justify-self-center">Confirmar</Button>
