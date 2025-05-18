@@ -10,7 +10,11 @@ export default function HeaderCadastro(){
   const router = useRouter();
 
     return(
-
+      <>
+      <head>
+        <img src={logo_onglink_01} alt="" />
+        <title>Cadastro</title>
+      </head>
         <header className="bg-header ">
           <div className="mt-0 pt-4 pb-4 pl-8">
             <Image
@@ -25,7 +29,7 @@ export default function HeaderCadastro(){
           </div>
       </header>
 
-
+      </>
 
 
     )

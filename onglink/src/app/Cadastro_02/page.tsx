@@ -5,12 +5,14 @@ import logo_instagram from '@/src/app/img/icons/instagram_6422200.png'
 import logo_twitter from '@/src/app/img/icons/twitter_5968830.png'
 import logo_facebook from '@/src/app/img/icons/social_12942738.png'
 import logo_linkedin from '@/src/app/img/icons/linkedin_3536569.png'
-import { useState, useRef, ChangeEvent } from 'react';
+import { useState, useRef, ChangeEvent, FormEvent } from 'react';
 import { Button } from "react-bootstrap";
 import Header_cadastro from "@/src/app/components/header_cadastro"
 import Input from '../components/inputFormulario';
+import { useRouter } from "next/navigation";
 
 const Cadastro_02 = () => {
+    const router = useRouter();
     const [tipoCadastro, setTipoCadastro] = useState<number | null>(null);
     const [logoEmpresa, setLogoEmpresa] = useState<File | null>(null);
     const [logoOng, setLogoOng] = useState<File | null>(null);
@@ -18,23 +20,27 @@ const Cadastro_02 = () => {
     const [pdf2Ong, setPdf2Ong] = useState<File | null>(null);
     const [previewLogoEmpresa, setPreviewLogoEmpresa] = useState<string | null>(null);
     const [previewLogoOng, setPreviewLogoOng] = useState<string | null>(null);
+    const [causaSelecionada, setCausaSelecionada] = useState<number | null>(null);
     const fileInputRef = useRef<HTMLInputElement>(null);
 
     const handleRadioChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const value = parseInt(e.target.value);
         
-        // Clear all fields when switching between options
-        if (value === 1) { // Empresa selected
+        if (value === 1) {
             setLogoOng(null);
             setPdf1Ong(null);
             setPdf2Ong(null);
             setPreviewLogoOng(null);
-        } else if (value === 2) { // ONG selected
+        } else if (value === 2) {
             setLogoEmpresa(null);
             setPreviewLogoEmpresa(null);
         }
         
         setTipoCadastro(value);
+    };
+
+    const handleCausaChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setCausaSelecionada(parseInt(e.target.value));
     };
 
     const handleLogoEmpresaChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -73,6 +79,34 @@ const Cadastro_02 = () => {
         if (e.target.files && e.target.files[0]) {
             setPdf2Ong(e.target.files[0]);
         }
+    };
+
+    const handleConfirmar = (e: React.MouseEvent<HTMLButtonElement>) => {
+        e.preventDefault();
+        
+        // Validação para Empresa
+        if (tipoCadastro === 1 && !logoEmpresa) {
+            alert('Por favor, selecione o logo da empresa');
+            return;
+        }
+        
+        // Validação para ONG
+        if (tipoCadastro === 2) {
+            if (!logoOng || !pdf1Ong || !pdf2Ong) {
+                alert('Por favor, preencha todos os campos obrigatórios para ONG');
+                return;
+            }
+            
+            if (!causaSelecionada) {
+                alert('Por favor, selecione a causa principal da sua organização');
+                return;
+            }
+        }
+        
+        
+        
+        // Redireciona para a página de login
+        router.push('/login');
     };
 
     return (
@@ -245,7 +279,7 @@ const Cadastro_02 = () => {
                                         className="bg-white border rounded w-full p-2 border-gray-300 mb-3"
                                     />
                                 </div>
-                                <Button className="justify-self-center">Confirmar</Button>
+                                <Button className="justify-self-center" onClick={handleConfirmar}>Confirmar</Button>
                             </div>
                         )}
 
@@ -331,25 +365,58 @@ const Cadastro_02 = () => {
                                 <div>
                                     <h3 className="text-lg font-semibold mb-3">Escolha a causa principal da sua organização:</h3>
                                     
-                                    <label htmlFor="" className="mr-1 ml-3">Ambiental</label>
-                                    <input type="radio" name="escCausa" id="escCausa" value={1}/>
+                                    <label htmlFor="causaAmbiental" className="mr-1 ml-3">Ambiental</label>
+                                    <input 
+                                        type="radio" 
+                                        name="escCausa" 
+                                        id="causaAmbiental" 
+                                        value={1}
+                                        onChange={handleCausaChange}
+                                        checked={causaSelecionada === 1}
+                                    />
                                     
-                                    <label htmlFor="" className="mr-1 ml-3">Animal</label>
-                                    <input type="radio" name="escCausa" id="escCausa" value={2} />
+                                    <label htmlFor="causaAnimal" className="mr-1 ml-3">Animal</label>
+                                    <input 
+                                        type="radio" 
+                                        name="escCausa" 
+                                        id="causaAnimal" 
+                                        value={2}
+                                        onChange={handleCausaChange}
+                                        checked={causaSelecionada === 2}
+                                    />
                                     
-                                    <label htmlFor="" className="mr-1 ml-3">Educação</label>
-                                    <input type="radio" name="escCausa" id="escCausa" value={3} />
+                                    <label htmlFor="causaEducacao" className="mr-1 ml-3">Educação</label>
+                                    <input 
+                                        type="radio" 
+                                        name="escCausa" 
+                                        id="causaEducacao" 
+                                        value={3}
+                                        onChange={handleCausaChange}
+                                        checked={causaSelecionada === 3}
+                                    />
                                     
-                                    <label htmlFor="" className="mr-1 ml-3">Saúde</label>
-                                    <input type="radio" name="escCausa" id="escCausa" value={4} />
+                                    <label htmlFor="causaSaude" className="mr-1 ml-3">Saúde</label>
+                                    <input 
+                                        type="radio" 
+                                        name="escCausa" 
+                                        id="causaSaude" 
+                                        value={4}
+                                        onChange={handleCausaChange}
+                                        checked={causaSelecionada === 4}
+                                    />
                                     
-                                    <label htmlFor="" className="mr-1 ml-3">Social</label>
-                                    <input type="radio" name="escCausa" id="escCausa" value={5}/>
-                                    
-                                    
+                                    <label htmlFor="causaSocial" className="mr-1 ml-3">Social</label>
+                                    <input 
+                                        type="radio" 
+                                        name="escCausa" 
+                                        id="causaSocial" 
+                                        value={5}
+                                        onChange={handleCausaChange}
+                                        checked={causaSelecionada === 5}
+                                    />
                                 </div>
 
-                                <Button className="justify-self-center">Confirmar</Button>
+                                <Button className="justify-self-center" onClick={handleConfirmar}>Confirmar</Button>
                             </div>
                         )}
                     </form>
