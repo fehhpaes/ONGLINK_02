@@ -148,16 +148,7 @@ const Cadastro_02 = () => {
             }
         }
         
-        // Se todas as validações passarem, pode enviar os dados
-        console.log('Dados do formulário válidos:', {
-            tipoCadastro,
-            logoEmpresa,
-            logoOng,
-            pdf1Ong,
-            pdf2Ong,
-            causaSelecionada,
-            areaAtuacaoEmpresa
-        });
+
         
         // Redireciona para a página de login após o cadastro
         router.push('/login');
@@ -218,7 +209,7 @@ const Cadastro_02 = () => {
                                     />
                                 </div>
                                 
-                                {/* Twitter */}
+                                {/* X | Twitter */}
                                 <div>
                                     <div className="flex">
                                         <Image src={logo_twitter}
