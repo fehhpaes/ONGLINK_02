@@ -376,7 +376,7 @@ const Cadastro_01 = () => {
                 </label>
                 <Input
                   name="estado"
-                  placeholder="XX"
+                  placeholder=""
                   type="text" 
                   className={`border rounded w-full p-2 ${errors.estado ? 'border-red-500' : 'border-gray-300'}`}
                   value={endereco.uf}
