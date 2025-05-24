@@ -170,7 +170,7 @@ const Cadastro_01 = () => {
     setErrors(newErrors);
 
     if (Object.keys(newErrors).length === 0) {
-      router.push('/Cadastro_02');
+      router.push('/cad_ong_empresa');
     }
   };
 

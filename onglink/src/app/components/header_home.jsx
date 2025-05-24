@@ -30,7 +30,7 @@ export default function Header_home () {
                   <div id="botoes_cadastro">
                     <Button 
                       variant="success"
-                      onClick={() => {router.push("/Cadastro_01")}}> 
+                      onClick={() => {router.push("/cad_pj")}}> 
 
                       Cadastre-se</Button>
 
