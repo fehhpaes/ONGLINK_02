@@ -3,6 +3,14 @@ import Image from "next/image";
 import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import FeedCarousel from "@/src/app/components/carrousel/carousel"
+import Arara from '@/src/app/img/arara.jpeg';
+import AraraAzul from '@/src/app/img/arara_azul.jpeg';
+import MuxnLogo1 from '@/src/app/img/MUXN_logo1.png';
+import Capivara from '@/src/app/img/capivara.jpeg';
+import Ceu from '@/src/app/img/ceu.jpeg';
+import Mico from '@/src/app/img/mico.jpeg';
+import Tucano from '@/src/app/img/tucano.jpeg';
+
 
 export default function Home() {
   return (
@@ -23,10 +31,10 @@ export default function Home() {
                   <div className="text-center">
                    
                     <div className="avatar avatar-lg mt-n5 mb-3">
-                        <a href="#!"> <Image className="avatar-img rounded-circle border d-inline"src="/src/app/img/MUXN_logo1.png" alt="logo_muxn" width={100} height={100}/></a>
+                        <a href="#!"> <Image className="avatar-img rounded-circle border d-inline"src={MuxnLogo1} alt="logo_muxn" width={100} height={100}/></a>
                         </div>
                     
-                    <h5 className="mb-0"> Empresa X </h5>
+                    <h5 className="mb-0"> MUXN </h5>
                     <small>Tecnologia</small>
                     <p className="mt-3">Por um planeta melhor através da tecnologia. </p>
 
@@ -118,7 +126,7 @@ export default function Home() {
           <div className="d-flex mt-4">
                 {/* <!-- LOGO/IMAGEM --> */}
             <div className="avatar avatar-xs me-2"style={{ minWidth: "60px" }}>
-              <a href="#"> <Image className="avatar-img rounded-circle" src="/img/MUXN_logo1.png" alt="" height={60} width={60}></Image> </a>
+              <a href="#"> <Image className="avatar-img rounded-circle" src={MuxnLogo1} alt="" height={60} width={60}></Image> </a>
             </div>
             <div className="card-body flex-grow-1">
               <h2> MUXN </h2>
@@ -141,7 +149,7 @@ export default function Home() {
               {/* <FeedCarousel/> */}
 
 
-              <Image src="/img/ceu.jpeg" className="img-fluid" alt="none"height={600} width={600}/>
+              <Image src={Ceu} className="img-fluid" alt="none"height={600} width={600}/>
             </div>
           </div>
           <div>
@@ -181,7 +189,7 @@ export default function Home() {
           <div className="d-flex mt-4">
                 {/* <!-- LOGO/IMAGEM --> */}
             <div className="avatar avatar-xs me-2" style={{ minWidth: "60px" }}>
-              <a href="#"> <Image className="avatar-img rounded-circle" src="/img/arara.jpeg" alt="" height={60} width={60}></Image> </a>
+              <a href="#"> <Image className="avatar-img rounded-circle" src={Arara} alt="" height={60} width={60}></Image> </a>
             </div>
             <div className="card-body flex-grow-1">
               <h2>Ambiental Force</h2>
