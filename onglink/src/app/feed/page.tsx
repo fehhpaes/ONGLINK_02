@@ -2,7 +2,7 @@
 import Image from "next/image";
 import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import FeedCarousel from "@/app/componentes/carrousel/carousel"
+import FeedCarousel from "@/src/app/components/carrousel/carousel"
 
 export default function Home() {
   return (
@@ -23,7 +23,7 @@ export default function Home() {
                   <div className="text-center">
                    
                     <div className="avatar avatar-lg mt-n5 mb-3">
-                        <a href="#!"> <Image className="avatar-img rounded-circle border d-inline"src="/img/MUXN_logo1.png" alt="logo_muxn" width={100} height={100}/></a>
+                        <a href="#!"> <Image className="avatar-img rounded-circle border d-inline"src="/src/app/img/MUXN_logo1.png" alt="logo_muxn" width={100} height={100}/></a>
                         </div>
                     
                     <h5 className="mb-0"> Empresa X </h5>
