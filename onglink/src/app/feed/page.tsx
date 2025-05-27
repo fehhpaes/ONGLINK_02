@@ -10,6 +10,9 @@ import Capivara from '@/src/app/img/capivara.jpeg';
 import Ceu from '@/src/app/img/ceu.jpeg';
 import Mico from '@/src/app/img/mico.jpeg';
 import Tucano from '@/src/app/img/tucano.jpeg';
+import logo_instagram from '@/src/app/img/icons/instagram_6422200.png'
+import logo_twitter from '@/src/app/img/icons/twitter_5968830.png'
+import logo_facebook from '@/src/app/img/icons/social_12942738.png'
 
 
 export default function Home() {
@@ -55,9 +58,9 @@ export default function Home() {
                       </div>
                       <div>
                       <ul className="list-unstyled d-flex justify-content-center">
-                        <li className=""><a className="link-body-emphasis" href="https://x.com/?lang=pt-br"><Image src="/img/icons/twitter_5968830.png" alt="" className="bi" width={24} height={24}/></a></li>
-                        <li className="ms-3"><a className="link-body-emphasis" href="https://www.instagram.com/"><Image src="/img/icons/instagram_6422200.png" alt="" className="bi" width={24} height={24}></Image></a></li>
-                        <li className="ms-3"><a className="link-body-emphasis" href="https://www.facebook.com/"><Image src="/img/icons/social_12942738.png" alt="" className="bi" width={24} height={24}></Image></a></li>
+                        <li className=""><a className="link-body-emphasis" href="https://x.com/?lang=pt-br"><Image src={logo_twitter} alt="" className="bi" width={24} height={24}/></a></li>
+                        <li className="ms-3"><a className="link-body-emphasis" href="https://www.instagram.com/"><Image src={logo_instagram} alt="" className="bi" width={24} height={24}></Image></a></li>
+                        <li className="ms-3"><a className="link-body-emphasis" href="https://www.facebook.com/"><Image src={logo_facebook} alt="" className="bi" width={24} height={24}></Image></a></li>
                       </ul>
                       </div>
                   
