@@ -126,6 +126,24 @@ export default function Home() {
       {/*FIM DO MENU LATERAL*/}    
       {/* /////////////////////////////////////////////////////////////////// */}
 {/* //PUBLICAR NO FEED */}
+
+ <div className="container-fluid col-12 vstack gap-4">
+        
+          <div className="d-flex mb-3">
+                      {/* <!-- LOGO/IMAGEM --> */}
+              <div className="avatar avatar-xs me-2">
+               <a href="#"> <Image className="avatar-img rounded-circle" src={MuxnLogo1} alt="" height={60} width={60}></Image> </a>
+              </div>
+                        {/* <!-- PUBLICAR NO FEED --> */}
+                         <div className="container">
+                        <form className="w-100 mb-3">
+                          <textarea className="form-control pe-4 border-0" rows={1} data-autoresize="" placeholder="Título"></textarea>
+                        </form>
+              <form className="w-100">
+                <textarea className="form-control pe-4 border-0" rows={5} data-autoresize="" placeholder="Editar publicação"></textarea>
+              </form>
+                         </div>
+          </div>
           <div className="d-flex mt-4">
                 {/* <!-- LOGO/IMAGEM --> */}
             <div className="avatar avatar-xs me-2"style={{ minWidth: "60px" }}>
@@ -248,7 +266,7 @@ export default function Home() {
        
        </div>
       </div>
-      {/* </div> */}
+       </div>
 
        
     </main>
