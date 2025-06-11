@@ -43,10 +43,37 @@
   }
   
   
+  /* Header do Feed */
   
+  #botoes_feed {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  #botoes_feed a{
+    text-decoration: none;
+    color:white
+  }
+
+  #div_header_feed{
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 20px;
+  }
   
-  
-  
+  #botoes_feed button{
+    padding: 0;
+    margin-right: 10px;
+    width: 120px;
+    height: 50px;
+    background: none;
+    border: none;
+  }
+
+  #botoes_feed button:hover{
+    color: rgb(21, 223, 21);
+  }
   
   
   

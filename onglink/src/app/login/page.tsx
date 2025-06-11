@@ -45,7 +45,7 @@ export default function Login() {
               <div id="div_senha">
                 <Form.Label htmlFor="senha">Digite Senha:</Form.Label>
                 <Form.Control type="text" name="senha" id="senha" ></Form.Control>
-                <a href="recuperar_senha.html">Esqueci minha senha</a>
+                <a id="esqueci_senha" href="/recuperar_senha">Esqueci minha senha</a>
               </div>
             </div>
     

@@ -15,7 +15,7 @@ import '@/src/app/CSS/body.css'
 import Header_home from "@/src/app/components/header_home"
 
 
-export default function Product() {
+export default function Home() {
 
   return (
         <>

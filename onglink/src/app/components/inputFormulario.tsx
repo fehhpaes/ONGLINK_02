@@ -4,7 +4,7 @@ import { HTMLInputTypeAttribute } from "react";
 export type InputProps = {
     id?: string;
     name: string;
-    value: string | number;
+    value?: string | number;
     type: HTMLInputTypeAttribute;
     placeholder: string;
     className: string;

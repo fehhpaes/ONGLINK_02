@@ -75,6 +75,40 @@ header#header_header.py-3.mb-3.border-bottom{
 /*Divisão dentro container*/
 
 
+#main_recSenha{
+  display: flex;
+  align-items: center;
+}
+
+#tele_recSenha{
+  margin-bottom: 20px;
+  width: 200%;
+}
+
+#email_recSenha{
+  width: 200%;
+}
+
+#div_cad_ong_tela_1{
+  margin: 30px;
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#div_email {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#div_email a{
+  color: green;
+  font-size: small;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
 
 #cnpj, #email, #cpf{
 
@@ -272,6 +306,13 @@ text-align: center;
 
 }
 
+#senha {
+  margin-bottom: 20px;
+}
+
+#esqueci_senha{
+  color: darkgreen;
+}
 
 #btn_continuar{
 
