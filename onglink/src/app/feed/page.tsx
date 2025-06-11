@@ -134,6 +134,42 @@ export default function Home() {
 {/* //PUBLICAR NO FEED */}
           <div id="post1" className=" mt-4">
             <div id="subdiv_post1">
+
+ <div className="container-fluid col-12 vstack gap-4">
+        
+          <div className="d-flex mt-3 mb-3">
+                      {/* <!-- LOGO/IMAGEM --> */}
+              <div className="avatar avatar-xs me-2">
+               <a href="#"> <Image className="avatar-img rounded-circle" src={MuxnLogo1} alt="" height={60} width={60}></Image> </a>
+              </div>
+                        {/* <!-- PUBLICAR NO FEED --> */}
+                         <div className="container">
+                        <form className="w-100 mb-4">
+                          <textarea className="form-control pe-4 border-0" 
+                          rows={1} data-autoresize="" 
+                          placeholder="Título" 
+                           onInput={(e) => {
+                            const target = e.target as HTMLTextAreaElement;
+                                  target.style.height = "auto";
+                                   target.style.height = `${target.scrollHeight}px`;
+                              }}
+                              />
+                        </form>
+              <form className="w-100">
+                <textarea className="form-control pe-4 border-0" 
+                rows={5} 
+                data-autoresize="" 
+                placeholder="Editar publicação"
+                onInput={(e) => {
+                const target = e.target as HTMLTextAreaElement;
+                      target.style.height = "auto";
+                      target.style.height = `${target.scrollHeight}px`;
+                              }}
+                 />
+              </form>
+                         </div>
+          </div>
+          <div className="d-flex mt-4">
                 {/* <!-- LOGO/IMAGEM --> */}
             <div className="avatar avatar-xs me-2"style={{ minWidth: "60px" }}>
               <a href="#"> <Image className="avatar-img rounded-circle" src={MuxnLogo1} alt="" height={60} width={60}></Image> </a>
@@ -141,7 +177,7 @@ export default function Home() {
             <div className="card-body flex-grow-1">
               <h2> MUXN </h2>
               <h6 className="fw-bold">Bem vindo!</h6>
-              <div>
+              <div className="container-fluid w-100 col-12 vstack gap-4">
                 <p className="text-wrap">
                   Escrever é esquecer. 
                             A literatura é a maneira mais agradável de ignorar a vida. 
