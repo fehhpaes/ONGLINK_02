@@ -47,8 +47,8 @@
     align-items: flex-start;
 }
 
-#post1{
-    margin-bottom: 30px;
+#post1, #subdiv_publicar{
+    margin-bottom: 16px;
 }
 
 #subdiv_post2 {
@@ -56,7 +56,7 @@
 }
 
 
-#subdiv_post1, #subdiv_post2{
+#subdiv_post1, #subdiv_post2, #subdiv_publicar{
     background-color:#3b481dc4;
     padding: 20px;
     padding-right: 30px;

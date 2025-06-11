@@ -128,14 +128,14 @@ export default function Home() {
 
           <div id="div_posts" >
      
-        
+
+
       {/*FIM DO MENU LATERAL*/}    
       {/* /////////////////////////////////////////////////////////////////// */}
-{/* //PUBLICAR NO FEED */}
-          <div id="post1" className=" mt-4">
-            <div id="subdiv_post1">
+{/* //PUBLICAR NO FEED */}         
 
- <div className="container-fluid col-12 vstack gap-4">
+          <div className="container-fluid col-12 vstack gap-4 p-0">
+            <div id="subdiv_publicar">
         
           <div className="d-flex mt-3 mb-3">
                       {/* <!-- LOGO/IMAGEM --> */}
@@ -167,8 +167,20 @@ export default function Home() {
                               }}
                  />
               </form>
-                         </div>
+            </div>
           </div>
+
+          </div>
+            </div>
+          
+          <div className="b-example-divider"></div>
+
+          <div id="post1" className=" mt-3">
+            <div id="subdiv_post1">
+
+
+
+
           <div className="d-flex mt-4">
                 {/* <!-- LOGO/IMAGEM --> */}
             <div className="avatar avatar-xs me-2"style={{ minWidth: "60px" }}>
@@ -206,6 +218,8 @@ export default function Home() {
             </div>
 
             </div>
+          
+          </div>
           </div>
 
 
@@ -243,7 +257,7 @@ export default function Home() {
 {/* ///////////////////////////////////////////////////////////////////////////////////////// */}
      {/* <div className="col-md-8 col-lg-6 vstack gap-4"> */}
       {/* //PUBLICAR NO FEED */}
-          <div id="post2" className="d-flex mt-4">
+          <div id="post2" className="d-flex mt-3">
             <div id="subdiv_post2">
 
                 {/* <!-- LOGO/IMAGEM --> */}
