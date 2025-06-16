@@ -16,7 +16,7 @@ export default function Header_feed() {
               <div className="container-fluid d-grid gap-3 align-items-center">
                 <div className="d-flex align-items-center" id="div_header" >
                   
-                    <Link href="/">
+                    <Link href="/feed">
                       <Image className="border" src={logo_onglink_01} 
                           alt="Logo ONGLink"
                           width={242}
