@@ -12,9 +12,9 @@ export default function Header_feed() {
     const router = useRouter();
     
     return(
-        <header className="py-3" id="header_header">
+        <header className="py-3" id="div_header_feed">
               <div className="container-fluid d-grid gap-3 align-items-center">
-                <div className="d-flex align-items-center" id="div_header_feed">
+                <div className="d-flex align-items-center" id="div_header" >
                   
                     <Link href="/">
                       <Image className="border" src={logo_onglink_01} 
@@ -28,7 +28,8 @@ export default function Header_feed() {
                   </form>
         
                   <div id="botoes_feed">
-                    <Button variant="success"> 
+                    <Button variant="success"
+                      onClick={()=>{router.push("/perfil")}}> 
                       Perfil</Button>
 
                     <Button variant="success" >Publicar</Button>

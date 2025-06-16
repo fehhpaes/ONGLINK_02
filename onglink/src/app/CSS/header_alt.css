@@ -59,7 +59,9 @@
   #div_header_feed{
     display: flex;
     flex-direction: row;
-    padding-bottom: 20px;
+    height: 150px;
+     margin-bottom: 30px;
+    background-color: #34590F;
   }
   
   #botoes_feed button{

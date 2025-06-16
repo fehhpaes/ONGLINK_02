@@ -1,19 +1,15 @@
-main{
+main, #body_login{
     background-color: #95b95f;
 }
 
 /* Main da Homepage (Vinicius)*/
+
 
 #main1, #div_nossos_parceiros
 {
     background-image:url("https://images.pexels.com/photos/957024/forest-trees-perspective-bright-957024.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
     background-repeat: no-repeat; 
     background-size: cover;
-}
-
-body
-{
-    background-color:#84a454;
 }
 
 #image_home

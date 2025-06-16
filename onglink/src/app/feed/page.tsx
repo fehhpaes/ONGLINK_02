@@ -143,7 +143,7 @@ export default function Home() {
                <a href="#"> <Image className="avatar-img rounded-circle" src={MuxnLogo1} alt="" height={60} width={60}></Image> </a>
               </div>
                         {/* <!-- PUBLICAR NO FEED --> */}
-                         <div className="container">
+                         <div className="container mt-0">
                         <form className="w-100 mb-4">
                           <textarea className="form-control pe-4 border-0" 
                           rows={1} data-autoresize="" 
@@ -189,7 +189,7 @@ export default function Home() {
             <div className="card-body flex-grow-1">
               <h2> MUXN </h2>
               <h6 className="fw-bold">Bem vindo!</h6>
-              <div className="container-fluid w-100 col-12 vstack gap-4">
+              <div className="container-fluid w-100 col-12 vstack gap-4 pl-0">
                 <p className="text-wrap">
                   Escrever é esquecer. 
                             A literatura é a maneira mais agradável de ignorar a vida. 

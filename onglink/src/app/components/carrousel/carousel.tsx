@@ -1,4 +1,4 @@
-
+"use client"
 import { useState } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 import Image from 'next/image';

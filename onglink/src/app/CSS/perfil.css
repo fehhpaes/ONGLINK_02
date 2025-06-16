@@ -1,0 +1,30 @@
+
+#fundo_perfil {
+    height: 200px;
+    width: 100%;
+}
+
+#titulo_perfil{
+    display: flex;
+}
+
+#div_nome_perfil{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#logo_MUXN:hover {
+    filter: blur(2px);
+}
+
+.img-overlay-wrap svg{
+    position: relative;
+    top: -95;
+    left: 63;
+    visibility: hidden;
+}
+
+.img-overlay-wrap svg:hover {
+    visibility: visible;
+}
