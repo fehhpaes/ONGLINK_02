@@ -18,7 +18,7 @@ import { Button, Image, Alert } from "react-bootstrap";
 import { useRouter } from "next/navigation";
 import UploadButton from "@/src/app/components/button/UploadButton";
 import ConfirmationButton from "@/src/app/components/button/ConfirmationButton";
-
+import "@/src/app/CSS/apoio.css";
 import { Router } from "next/router";
 
 export default function Apoio() {
@@ -165,113 +165,113 @@ export default function Apoio() {
                 <h1>OBRIGADO POR APOIAR ESSA CAMPANHA</h1>
               </div>
               {/* <!-- LOGO/IMAGEM --> */}
-              <div
-                className=" d-flex avatar avatar-xs"
-                style={{ minWidth: "60px" }}
-              >
-                <a href="#">
-                  {" "}
+<div className="d-flex align-items-center justify-content-start flex-wrap p-3">
+  {/* Box do avatar e informações */}
+
+              <div className="highlight-box d-flex justify-content-star flex-wrap p-3">
+                <div className="avatar-container">
                   <NextImage
-                    className="ml-4 avatar-img rounded-circle me-5"
+                    className="avatar-img rounded-circle"
                     src={Arara}
-                    alt=""
+                    alt="Avatar"
                     height={100}
                     width={100}
-                  ></NextImage>
-                </a>
-                <div className="card-body flex-grow-1 justify-content-center">
-                  <h2> Ambiental Force </h2>
-                   <div>
-                        <small> Contato +55 (15) 3333-3333</small>
-                      </div>
-                      <div>
-                        <small> contato@muxn.com.br</small>
-                      </div>
-                      <div>
-                        <ul className="list-unstyled d-flex ">
-                          <li className="">
-                            <a
-                              className="link-body-emphasis"
-                              href="https://x.com/?lang=pt-br"
-                            >
-                              <NextImage
-                                src={logo_twitter}
-                                alt=""
-                                className="bi"
-                                width={24}
-                                height={24}
-                              />
-                            </a>
-                          </li>
-                          <li className="ms-3">
-                            <a
-                              className="link-body-emphasis"
-                              href="https://www.instagram.com/"
-                            >
-                              <NextImage
-                                src={logo_instagram}
-                                alt=""
-                                className="bi"
-                                width={24}
-                                height={24}
-                              ></NextImage>
-                            </a>
-                          </li>
-                          <li className="ms-3">
-                            <a
-                              className="link-body-emphasis"
-                              href="https://www.facebook.com/"
-                            >
-                              <NextImage
-                                src={logo_facebook}
-                                alt=""
-                                className="bi"
-                                width={24}
-                                height={24}
-                              ></NextImage>
-                            </a>
-                          </li>
-                        </ul>
-                      </div>
-                  
+                  />
                 </div>
-                <div className="card-body flex-grow-1 justify-content-center">
-                  <h4>Já realizou seu apoio?</h4>
 
+                <div className="info-container ms-3">
+                  <h2> Ambiental Force </h2>
                   <div>
-                    <UploadButton
-                      onFileSelect={confirmaArquivoSelecionado}
-                      label="Selecionar Documento"
-                    />
-                    {previewUrl && (
-                      <div
-                        style={{
-                          marginTop: "12px",
-                          position: "relative",
-                          width: "200px",
-                          height: "200px",
-                        }}
-                      >
-                        <Image
-                          src={previewUrl}
-                          alt="Preview"
-                          style={{
-                            width: "100%",
-                            height: "100%",
-                            objectFit: "contain",
-                          }}
-                        />
-                      </div>
-                    )}
-
-                    <ConfirmationButton
-                      onConfirm={confirmarEnvio}
-                      isFileReady={!!file}
-                    />
-                   
+                    <small> Contato +55 (15) 3333-3333</small>
+                  </div>
+                  <div>
+                    <small> contato@contato.com.br</small>
+                  </div>
+                  <div>
+                    <ul className="list-unstyled d-flex ">
+                      <li className="">
+                        <a
+                          className="link-body-emphasis"
+                          href="https://x.com/?lang=pt-br"
+                        >
+                          <NextImage
+                            src={logo_twitter}
+                            alt=""
+                            className="bi"
+                            width={24}
+                            height={24}
+                          />
+                        </a>
+                      </li>
+                      <li className="ms-3">
+                        <a
+                          className="link-body-emphasis"
+                          href="https://www.instagram.com/"
+                        >
+                          <NextImage
+                            src={logo_instagram}
+                            alt=""
+                            className="bi"
+                            width={24}
+                            height={24}
+                          ></NextImage>
+                        </a>
+                      </li>
+                      <li className="ms-3">
+                        <a
+                          className="link-body-emphasis"
+                          href="https://www.facebook.com/"
+                        >
+                          <NextImage
+                            src={logo_facebook}
+                            alt=""
+                            className="bi"
+                            width={24}
+                            height={24}
+                          ></NextImage>
+                        </a>
+                      </li>
+                    </ul>
                   </div>
                 </div>
               </div>
+
+              <div className="card-body flex-grow-1 justify-content-center ms-5">
+                <h4>Já realizou seu apoio?</h4>
+
+                <div>
+                  <UploadButton
+                    onFileSelect={confirmaArquivoSelecionado}
+                    label="Selecionar Documento"
+                  />
+                  {previewUrl && (
+                    <div
+                      style={{
+                        marginTop: "12px",
+                        position: "relative",
+                        width: "200px",
+                        height: "200px",
+                      }}
+                    >
+                      <Image
+                        src={previewUrl}
+                        alt="Preview"
+                        style={{
+                          width: "100%",
+                          height: "100%",
+                          objectFit: "contain",
+                        }}
+                      />
+                    </div>
+                  )}
+
+                  <ConfirmationButton
+                    onConfirm={confirmarEnvio}
+                    isFileReady={!!file}
+                  />
+                </div>
+              </div>
+            </div>
             </div>
           </div>
         </div>
