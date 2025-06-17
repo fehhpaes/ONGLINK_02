@@ -1,7 +1,13 @@
 'use client';
+import Header_feed from "../components/header_feed";
+import '@/src/app/CSS/header_alt.css'
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
-import Header_cadastro from "@/src/app/components/header_cadastro";
+import Image from 'next/image';
+import logo_instagram from '@/src/app/img/icons/instagram_6422200.png';
+import logo_twitter from '@/src/app/img/icons/twitter_5968830.png';
+import logo_facebook from '@/src/app/img/icons/social_12942738.png';
+import logo_linkedin from '@/src/app/img/icons/linkedin_3536569.png';
 import { CepResponse, getCepData } from '../services/cep';
 import { Field, Form, Formik } from "formik";
 import * as Yup from 'yup';
@@ -27,7 +33,7 @@ type FormEndereco = {
     numero?: number;
 } & Partial<CepResponse>;
 
-export default function Cad_pj() {
+export default function Editar_perfil() {
     const router = useRouter();
     const initialValues = {
         razao_social: '',
@@ -65,16 +71,16 @@ export default function Cad_pj() {
 
     return (
         <>
-        <Header_cadastro/>
+        <Header_feed/>
         <body className='bg-verde1'>
             <main className="bg-verde2 min-h-screen flex items-center justify-center p-4 mt-4 mb-4">
                 <div className="bg-white rounded-3xl border-4 p-6 w-full max-w-4xl">   
-                    <h1 className="text-center">Cadastro</h1>
+                    <h1 className="text-center">Editar Perfil</h1>
                     <Formik 
                         initialValues={initialValues}
                         onSubmit={values => {
                             console.log(values);
-                            router.push('/cad_ong_empresa');
+                            router.push('/perfil');
                         }}
                         validationSchema={validationSchema}
                     >
@@ -152,6 +158,7 @@ export default function Cad_pj() {
                                                 maxLength={14}
                                                 placeholder="(00)00000-0000"
                                                 className="border-1 rounded w-full p-2 border-gray-600"
+
                                             />
                                         </div>
                                     </div>
@@ -257,7 +264,7 @@ export default function Cad_pj() {
                                     </div>
 
                                     {/* Bairro e Complemento */}
-                                    <div className="grid grid-cols-2 md:grid-cols-2 gap-4 mb-4">
+                                    <div className="grid grid-cols-2 md:grid-cols-2 gap-4 mb-2">
                                         {/* Bairro */} 
                                         <div>
                                             <label htmlFor="bairro" className="block mb-1">
@@ -266,7 +273,7 @@ export default function Cad_pj() {
                                             <Field 
                                                 type="text" 
                                                 name="bairro"
-                                                className="border-1 rounded w-full p-2 border-gray-600"
+                                                className="bg-white border-1 rounded w-full p-2 border-gray-600 mb-3"
                                             />
                                             <ErrorMessage name="bairro" component="div" className="error"/>
                                         </div>
@@ -279,10 +286,106 @@ export default function Cad_pj() {
                                             <Field 
                                                 type="text" 
                                                 name="complemento"
-                                                className="border-1 rounded w-full p-2 border-gray-600"
+                                                className="bg-white border-1 rounded w-full p-2 border-gray-600 mb-3"
                                             />
                                         </div>
                                     </div>
+
+                                    
+                                    {/* Seção de links de redes sociais */}
+                                    <div className="w-100 justify-self-center ">
+                                        {/* Instagram e Facebook */}
+                                        <div className="flex row-cols-2  ">
+                                            {/* Instagram */}
+                                            <div className="mr-2 justify-content-center">   
+                                                <div className="flex">
+                                                    <Image src={logo_instagram}
+                                                        alt="Logo Instagram"
+                                                        width={24}
+                                                        height={24}
+                                                        className="shadow-md mt-1 mb-1 mr-2"
+                                                    />
+                                                    <label htmlFor="campoInstagram" className="mt-1">Link do Instagram</label>
+                                                </div>
+                                                <Field 
+                                                    name="campoInstagram" 
+                                                    type="text" 
+                                                    id="campoInstagram" 
+                                                    placeholder="Instagram"
+                                                    value=""
+                                                    className="bg-white border-1 rounded w-full p-2 border-gray-600 mb-3"
+                                                />
+                                            </div>
+                                        
+                                
+                                            {/* Facebook */}
+                                            <div className="mr-2">
+                                                <div className="flex">
+                                                    <Image src={logo_facebook}
+                                                        alt="Logo Facebook"
+                                                        width={24}
+                                                        height={24}
+                                                        className="shadow-md mt-1 mb-1 mr-2"
+                                                    />
+                                                    <label htmlFor="campoFacebook" className="mt-1">Link do Facebook</label>
+                                                </div>
+                                                <Field 
+                                                    name="campoFacebook" 
+                                                    type="text" 
+                                                    id="campoFacebook" 
+                                                    placeholder="Facebook"
+                                                    value=""
+                                                    className="bg-white border-1 rounded w-full p-2 border-gray-600 mb-3"
+                                                />
+                                            </div>
+                                        </div>
+
+                                        {/* X e Linkedin */}        
+                                        <div className="flex row-cols-2  ">        
+                                            {/* X | Twitter */}
+                                            <div className="mr-2">
+                                                <div className="flex">
+                                                    <Image src={logo_twitter}
+                                                        alt="Logo Twitter"
+                                                        width={24}
+                                                        height={24}
+                                                        className="shadow-md mt-1 mb-1 mr-2"
+                                                    />
+                                                    <label htmlFor="campoX" className="mt-1">Link do X</label>
+                                                </div>
+                                                <Field
+                                                    name="campoX" 
+                                                    type="text" 
+                                                    id="campoX" 
+                                                    placeholder="@"
+                                                    value=""
+                                                    className="bg-white border-1 rounded w-full p-2 border-gray-600 mb-3"
+                                                />
+                                            </div>
+                                    
+                                            {/* LinkedIn */}
+                                            <div className="mr-2">
+                                                
+                                                <div className="flex">
+                                                    <Image src={logo_linkedin}
+                                                        alt="Logo LinkedIn"
+                                                        width={24}
+                                                        height={24}
+                                                        className="shadow-md mt-1 mb-1 mr-2"
+                                                    />
+                                                    <label htmlFor="campoLinkedin" className="mt-1">Link do LinkedIn</label>
+                                                </div>
+                                                <Field 
+                                                    name="campoLinkedin" 
+                                                    type="text" 
+                                                    id="campoLinkedin" 
+                                                    placeholder="Linkedin"
+                                                    value=""
+                                                    className="bg-white border-1 rounded w-full p-2 border-gray-600 mb-3"
+                                                />
+                                                
+                                            </div>
+                                        </div>      
 
                                     {/* Sobre a Empresa */}
                                     <div className="mb-6">
@@ -309,6 +412,8 @@ export default function Cad_pj() {
                                         </button>
                                     </div>
                                 </div>
+                            </div>
+
                             </Form>
                         )}
                     </Formik>
