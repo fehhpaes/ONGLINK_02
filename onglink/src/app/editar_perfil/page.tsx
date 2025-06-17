@@ -386,7 +386,7 @@ export default function Editar_perfil() {
                                                 
                                             </div>
                                         </div>      
-
+                                    </div>            
                                     {/* Sobre a Empresa */}
                                     <div className="mb-6">
                                         <label htmlFor="sobre" className="block mb-1">
@@ -412,7 +412,7 @@ export default function Editar_perfil() {
                                         </button>
                                     </div>
                                 </div>
-                            </div>
+                            
 
                             </Form>
                         )}

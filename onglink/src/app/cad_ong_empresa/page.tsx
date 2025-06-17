@@ -165,92 +165,100 @@ const Cadastro_02 = () => {
                         <div><h1 className="text-center">Cadastro</h1></div>
                         
                         <form>
+
                             {/* Seção de links de redes sociais */}
-                            <div className="w-50 justify-self-center">
-                                {/* Instagram */}
-                                <div>   
-                                    <div className="flex">
-                                        <Image src={logo_instagram}
-                                            alt="Logo Instagram"
-                                            width={24}
-                                            height={24}
-                                            className="shadow-md mt-1 mb-1 mr-2"
-                                        />
-                                        <label htmlFor="campoInstagram" className="mt-1">Link do Instagram</label>
-                                    </div>
-                                    <Input 
-                                        name="campoInstagram" 
-                                        type="text" 
-                                        id="campoInstagram" 
-                                        placeholder="Instagram"
-                                        value=""
-                                        className="bg-white border rounded w-full p-2 border-gray-300 mb-3"
-                                    />
-                                </div>
+                                <div className="w-99 justify-self-center ">
+                                    {/* Instagram e Facebook */}
+                                    <div className="flex row-cols-2  ">
+                                        {/* Instagram */}
+                                        <div className="mr-2 justify-content-center">   
+                                            <div className="flex">
+                                                <Image src={logo_instagram}
+                                                    alt="Logo Instagram"
+                                                    width={24}
+                                                    height={24}
+                                                    className="shadow-md mt-1 mb-1 mr-2"
+                                                />
+                                                <label htmlFor="campoInstagram" className="mt-1">Link do Instagram</label>
+                                            </div>
+                                            <Input 
+                                                name="campoInstagram" 
+                                                type="text" 
+                                                id="campoInstagram" 
+                                                placeholder="Instagram"
+                                                value=""
+                                                className="bg-white border-1 rounded w-full p-2 border-gray-600 mb-3"
+                                            />
+                                        </div>
+                                        
                                 
-                                {/* Facebook */}
-                                <div>
-                                    <div className="flex">
-                                        <Image src={logo_facebook}
-                                            alt="Logo Facebook"
-                                            width={24}
-                                            height={24}
-                                            className="shadow-md mt-1 mb-1 mr-2"
-                                        />
-                                        <label htmlFor="campoFacebook" className="mt-1">Link do Facebook</label>
+                                        {/* Facebook */}
+                                        <div className="mr-2">
+                                            <div className="flex">
+                                                <Image src={logo_facebook}
+                                                    alt="Logo Facebook"
+                                                    width={24}
+                                                    height={24}
+                                                    className="shadow-md mt-1 mb-1 mr-2"
+                                                />
+                                                <label htmlFor="campoFacebook" className="mt-1">Link do Facebook</label>
+                                            </div>
+                                            <Input 
+                                                name="campoFacebook" 
+                                                type="text" 
+                                                id="campoFacebook" 
+                                                placeholder="Facebook"
+                                                value=""
+                                                className="bg-white border-1 rounded w-full p-2 border-gray-600 mb-3"
+                                            />
+                                        </div>
                                     </div>
-                                    <Input 
-                                        name="campoFacebook" 
-                                        type="text" 
-                                        id="campoFacebook" 
-                                        placeholder="Facebook"
-                                        value=""
-                                        className="bg-white border rounded w-full p-2 border-gray-300 mb-3"
-                                    />
+
+                                    {/* X e Linkedin */}        
+                                    <div className="flex row-cols-2  ">        
+                                        {/* X | Twitter */}
+                                        <div className="mr-2">
+                                            <div className="flex">
+                                                <Image src={logo_twitter}
+                                                    alt="Logo Twitter"
+                                                    width={24}
+                                                    height={24}
+                                                    className="shadow-md mt-1 mb-1 mr-2"
+                                                />
+                                                <label htmlFor="campoX" className="mt-1">Link do X</label>
+                                            </div>
+                                            <Input
+                                                name="campoX" 
+                                                type="text" 
+                                                   id="campoX" 
+                                                placeholder="@"
+                                                value=""
+                                                className="bg-white border-1 rounded w-full p-2 border-gray-600 mb-3"
+                                            />
+                                        </div>
+                                    
+                                        {/* LinkedIn */}
+                                        <div className="mr-2">
+                                            <div className="flex">
+                                                <Image src={logo_linkedin}
+                                                    alt="Logo LinkedIn"
+                                                    width={24}
+                                                    height={24}
+                                                    className="shadow-md mt-1 mb-1 mr-2"
+                                                />
+                                                <label htmlFor="campoLinkedin" className="mt-1">Link do LinkedIn</label>
+                                            </div>
+                                            <Input 
+                                                name="campoLinkedin" 
+                                                type="text" 
+                                                id="campoLinkedin" 
+                                                placeholder="Linkedin"
+                                                value=""
+                                                className="bg-white border-1 rounded w-full p-2 border-gray-600 mb-3"
+                                            />
+                                        </div>
+                                    </div>      
                                 </div>
-                                
-                                {/* X | Twitter */}
-                                <div>
-                                    <div className="flex">
-                                        <Image src={logo_twitter}
-                                            alt="Logo Twitter"
-                                            width={24}
-                                            height={24}
-                                            className="shadow-md mt-1 mb-1 mr-2"
-                                        />
-                                        <label htmlFor="campoX" className="mt-1">Link do X</label>
-                                    </div>
-                                    <Input 
-                                        name="campoX" 
-                                        type="text" 
-                                        id="campoX" 
-                                        placeholder="@"
-                                        value=""
-                                        className="bg-white border rounded w-full p-2 border-gray-300 mb-3"
-                                    />
-                                </div>
-                                
-                                {/* LinkedIn */}
-                                <div>
-                                    <div className="flex">
-                                        <Image src={logo_linkedin}
-                                            alt="Logo LinkedIn"
-                                            width={24}
-                                            height={24}
-                                            className="shadow-md mt-1 mb-1 mr-2"
-                                        />
-                                        <label htmlFor="campoLinkedin" className="mt-1">Link do LinkedIn</label>
-                                    </div>
-                                    <Input 
-                                        name="campoLinkedin" 
-                                        type="text" 
-                                        id="campoLinkedin" 
-                                        placeholder="Linkedin"
-                                        value=""
-                                        className="bg-white border rounded w-full p-2 border-gray-300 mb-3"
-                                    />
-                                </div>
-                            </div>
                             
                             {/* Seleção do tipo de cadastro (Empresa/ONG) */}
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4 text-center">
