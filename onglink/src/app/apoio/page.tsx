@@ -20,6 +20,8 @@ import UploadButton from "@/src/app/components/button/UploadButton";
 import ConfirmationButton from "@/src/app/components/button/ConfirmationButton";
 import "@/src/app/CSS/apoio.css";
 import { Router } from "next/router";
+import Header_Apoio from "../components/Header_Apoio";
+
 
 export default function Apoio() {
   const [file, setFile] = useState<File | null>(null);
@@ -62,7 +64,9 @@ export default function Apoio() {
   };
 
   return (
-    <main className="bg-body-secondary p-2">
+  <>
+    <Header_Apoio/>
+    <main> {/*className="bg-body-secondary p-2" id="main_feed" */}
       {/* <!--Main-->  */}
       <div className="container">
         <div className="row g-4">
@@ -277,5 +281,6 @@ export default function Apoio() {
         </div>
       </div>
     </main>
+    </>
   );
 }
