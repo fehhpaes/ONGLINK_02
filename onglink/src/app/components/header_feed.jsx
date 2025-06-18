@@ -19,7 +19,7 @@ export default function Header_feed() {
                     <Link href="/feed">
                       <Image className="border" src={logo_onglink_01} 
                           alt="Logo ONGLink"
-                          width={242}
+                          width={150}
                           id="logo_onglink">
                       </Image>
                     </Link>
@@ -33,10 +33,6 @@ export default function Header_feed() {
                       Perfil</Button>
 
                     <Button variant="success" >Publicar</Button>
-
-                    <Button variant="success" >Eventos</Button>
-
-                    <Button variant="success" >Aprovação</Button>
 
                     <Button variant="success"
                       >

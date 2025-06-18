@@ -255,8 +255,8 @@ export default function Home() {
                         </form>
                       </div>
                     </div>
-                    <div id="div_botoes" className=" align-items-center">
-                      <Button variant="primary" className="me-2">
+                    <div id="div_botoes_publi" className=" align-items-center">
+                      <Button variant="success" className="me-2" title="Enviar">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width="35"
@@ -269,7 +269,7 @@ export default function Home() {
                           <path d="M16 12.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0m-1.993-1.679a.5.5 0 0 0-.686.172l-1.17 1.95-.547-.547a.5.5 0 0 0-.708.708l.774.773a.75.75 0 0 0 1.174-.144l1.335-2.226a.5.5 0 0 0-.172-.686" />
                         </svg>
                       </Button>
-                      <Button>
+                      <Button variant="success">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width="35"
@@ -339,7 +339,7 @@ export default function Home() {
                           width={700}
                         />
                         <div id="div_botoes">
-                          <Button>
+                          <Button variant="success" title="Curtir">
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
                               width="35"
@@ -355,7 +355,7 @@ export default function Home() {
                               <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
                             </svg>
                           </Button>
-                          <Button>
+                          <Button variant="success" title="Compartilhar">
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
                               width="35"
@@ -380,7 +380,7 @@ export default function Home() {
                               <line x1="15.41" x2="8.59" y1="6.51" y2="10.49" />
                             </svg>
                           </Button>
-                          <Button>
+                          <Button variant="success" title="Comentar">
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
                               width="35"
@@ -396,23 +396,42 @@ export default function Home() {
                               <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" />
                             </svg>
                           </Button>
-                          <Button>
-                            <svg
+                          <Button variant="success" title="Apoiar">
+                            <a href="/apoio">
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="35"
+                                height="35"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                className="lucide lucide-heart-handshake-icon lucide-heart-handshake"
+                              >
+                                <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+                                <path d="M12 5 9.04 7.96a2.17 2.17 0 0 0 0 3.08c.82.82 2.13.85 3 .07l2.07-1.9a2.82 2.82 0 0 1 3.79 0l2.96 2.66" />
+                                <path d="m18 15-2-2" />
+                                <path d="m15 18-2-2" />
+                              </svg>
+                            </a>
+
+                          </Button>
+
+                          <Button title="Denunciar">
+                            <svg 
                               xmlns="http://www.w3.org/2000/svg"
-                              width="35"
-                              height="35"
+                              width="35" height="35"
                               viewBox="0 0 24 24"
                               fill="none"
                               stroke="currentColor"
                               stroke-width="2"
                               stroke-linecap="round"
                               stroke-linejoin="round"
-                              className="lucide lucide-heart-handshake-icon lucide-heart-handshake"
-                            >
-                              <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
-                              <path d="M12 5 9.04 7.96a2.17 2.17 0 0 0 0 3.08c.82.82 2.13.85 3 .07l2.07-1.9a2.82 2.82 0 0 1 3.79 0l2.96 2.66" />
-                              <path d="m18 15-2-2" />
-                              <path d="m15 18-2-2" />
+                              className="lucide lucide-message-square-warning-icon lucide-message-square-warning"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                              <path d="M12 7v2"/>
+                              <path d="M12 13h.01"/>
                             </svg>
                           </Button>
                         </div>
@@ -484,7 +503,7 @@ export default function Home() {
 
                       <FeedCarousel />
                       <div id="div_botoes">
-                        <Button>
+                        <Button variant="success" title="Curtir">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             width="35"
@@ -500,7 +519,7 @@ export default function Home() {
                             <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
                           </svg>
                         </Button>
-                        <Button>
+                        <Button variant="success" title="Compartilhar">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             width="35"
@@ -520,7 +539,7 @@ export default function Home() {
                             <line x1="15.41" x2="8.59" y1="6.51" y2="10.49" />
                           </svg>
                         </Button>
-                        <Button>
+                        <Button variant="success" title="Comentar">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             width="35"
@@ -536,25 +555,42 @@ export default function Home() {
                             <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" />
                           </svg>
                         </Button>
-                        <Button>
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="35"
-                            height="35"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            className="lucide lucide-heart-handshake-icon lucide-heart-handshake"
-                          >
-                            <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
-                            <path d="M12 5 9.04 7.96a2.17 2.17 0 0 0 0 3.08c.82.82 2.13.85 3 .07l2.07-1.9a2.82 2.82 0 0 1 3.79 0l2.96 2.66" />
-                            <path d="m18 15-2-2" />
-                            <path d="m15 18-2-2" />
-                          </svg>
+                        <Button variant="success" title="Apoiar">
+                          <a href="/apoio">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="35"
+                              height="35"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              className="lucide lucide-heart-handshake-icon lucide-heart-handshake"
+                            >
+                              <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+                              <path d="M12 5 9.04 7.96a2.17 2.17 0 0 0 0 3.08c.82.82 2.13.85 3 .07l2.07-1.9a2.82 2.82 0 0 1 3.79 0l2.96 2.66" />
+                              <path d="m18 15-2-2" />
+                              <path d="m15 18-2-2" />
+                            </svg>
+                          </a>
                         </Button>
+                        <Button title="Denunciar">
+                            <svg 
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="35" height="35"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              className="lucide lucide-message-square-warning-icon lucide-message-square-warning"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                              <path d="M12 7v2"/>
+                              <path d="M12 13h.01"/>
+                            </svg>
+                          </Button>
                       </div>
 
                       {/* <Image src="/img/michelin.jpeg" className="img-fluid" alt="none"height={600} width={600}/> */}

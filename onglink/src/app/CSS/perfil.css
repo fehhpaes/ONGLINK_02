@@ -13,10 +13,6 @@
     border-bottom-right-radius: 25px;
 }
 
-#div1_perfil{
-    border-bottom: ;
-}
-
 #titulo_perfil{
     display: flex;
     flex-direction: column;
@@ -42,6 +38,7 @@
 #div1_perfil{
     display: flex;
     flex-direction: row;
+    align-items: center;
 }
 
 #div_nome_perfil{
@@ -55,15 +52,17 @@
     overflow-x: hidden;
     display: flex;
     flex-direction: column;
-    padding: 20px;
     padding-right: 0px;
-    height: 500px;
+    height: 600px;
+    padding: 20px;
 }
+
 
 #borda_publi{
     border-radius: 10px;
-    border-color: #2b3710c4;
-    background-color: #84a454;
+    border-color:#789186;
+    background-color: #99b4a8;
+    width: 80%;
 }
 
 #logo_MUXN:hover.img-overlay-wrap {

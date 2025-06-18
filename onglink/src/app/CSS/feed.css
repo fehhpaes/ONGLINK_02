@@ -1,4 +1,4 @@
-#div_botoes button{
+#div_botoes button, #div_botoes_publi button{
     margin-right: 40px;
     margin-left: 40px;
     background: none;
@@ -9,15 +9,24 @@
     background-color: white;
 }
 
-#div_botoes{
+#div_botoes, #div_botoes_publi{
     margin-top: 20px;
     padding-right: 20px;
     display: flex;
     justify-content: center;
 }
 
+#div_botoes a{
+    color: white;
+}
+
+#div_botoes_publi svg:hover{
+    fill: #20df15;
+}
+
+
 #div_botoes svg:hover {
-    fill: rgb(4, 222, 4);
+    stroke: #20df15;
 }
 
 #div_perfil span, #div_perfil svg{
