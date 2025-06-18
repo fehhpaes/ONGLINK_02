@@ -75,3 +75,10 @@
 #div_posts p{
     padding-right: 20px;
 }
+
+#text_area_denuncia{
+    border-radius: 5px;
+    border-color: lightgrey;
+    height: 150px;
+    width: 70%;
+}

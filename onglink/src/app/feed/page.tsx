@@ -15,7 +15,7 @@ import Tucano from "@/src/app/img/tucano.jpeg";
 import logo_instagram from "@/src/app/img/icons/instagram_6422200.png";
 import logo_twitter from "@/src/app/img/icons/twitter_5968830.png";
 import logo_facebook from "@/src/app/img/icons/social_12942738.png";
-import { Button } from "react-bootstrap";
+import { Button, Modal, Form, FormCheck, Alert } from "react-bootstrap";
 import Header_feed from "../components/header_feed";
 import UploadButton from "../components/button/UploadButton";
 
@@ -55,6 +55,50 @@ export default function Home() {
     setTimeout(() => setShowSucesso(false), 3000);
   };
 
+  const [modalShow, setModalShow] = React.useState(false);
+
+
+  function ModalDenuncia(props:any) {
+    function handleClose(){
+      setModalShow(false);
+      return(
+        alert("Denúncia Enviada com Sucesso!"));
+    }
+
+    return (
+      <Modal
+        {...props}
+        size="lg"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+      >
+        <Modal.Header closeButton>
+          <Modal.Title id="contained-modal-title-vcenter">
+            Denunciar Publicação
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+
+          <Form className="mb-3">
+            <FormCheck className="fs-5" type="checkbox" label="Conteúdo Ofensivo" />
+            <FormCheck className="fs-5" type="checkbox" label="Informações Falsas" />
+            <FormCheck className="fs-5" type="checkbox" label="Violação de Direitos Autorais" />
+            <FormCheck className="fs-5" type="checkbox" label="Spam" />
+          </Form>
+
+          <h5>Diga-nos mais (opcional)</h5>
+          <textarea className="border-1" id="text_area_denuncia"></textarea>
+
+        </Modal.Body>
+        <Modal.Footer>
+          <Button onClick={handleClose}> Enviar </Button>
+        </Modal.Footer>
+      </Modal>
+    );
+  }
+
+
+
   const handleArquivo = (file: File) => {
     console.log("Arquivo recebido:", file.name);
   };
@@ -63,6 +107,11 @@ export default function Home() {
       <Header_feed />
       <main id="main_feed">
         {/* <!--Main-->  */}
+
+
+      <ModalDenuncia
+        show={modalShow}
+        onHide={() => setModalShow(false)}/>
 
         <div className="container-fluid">
           <div className="row g-4">
@@ -256,6 +305,7 @@ export default function Home() {
                       </div>
                     </div>
                     <div id="div_botoes_publi" className=" align-items-center">
+                      <a href="/apoio">
                       <Button variant="success" className="me-2" title="Enviar">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -269,6 +319,7 @@ export default function Home() {
                           <path d="M16 12.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0m-1.993-1.679a.5.5 0 0 0-.686.172l-1.17 1.95-.547-.547a.5.5 0 0 0-.708.708l.774.773a.75.75 0 0 0 1.174-.144l1.335-2.226a.5.5 0 0 0-.172-.686" />
                         </svg>
                       </Button>
+                      </a>
                       <Button variant="success">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -419,7 +470,7 @@ export default function Home() {
 
                           </Button>
 
-                          <Button title="Denunciar">
+                          <Button title="Denunciar" onClick={() => setModalShow(true)}>
                             <svg 
                               xmlns="http://www.w3.org/2000/svg"
                               width="35" height="35"
@@ -576,7 +627,7 @@ export default function Home() {
                             </svg>
                           </a>
                         </Button>
-                        <Button title="Denunciar">
+                        <Button title="Denunciar" onClick={() => setModalShow(true)}>
                             <svg 
                               xmlns="http://www.w3.org/2000/svg"
                               width="35" height="35"
