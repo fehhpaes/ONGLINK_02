@@ -3,9 +3,14 @@ import React, { FC, useState } from "react";
 import Image from "next/image";
 import MuxnLogo1 from "@/src/app/img/MUXN_logo1.png";
 import NeWUploadButton from "./button/NewUploadButton";
+import { Button, Modal, Form, FormCheck, Alert } from "react-bootstrap";
 
 interface PublicarFormProps {
-  onPublish: (post: { title: string; message: string; image?:File | null }) => void;
+  onPublish: (post: {
+    title: string;
+    message: string;
+    image?: File | null;
+  }) => void;
 }
 
 const PublicarForm: FC<PublicarFormProps> = ({ onPublish }) => {
@@ -22,6 +27,55 @@ const PublicarForm: FC<PublicarFormProps> = ({ onPublish }) => {
       setImage(null);
     }
   };
+  const [modalShow, setModalShow] = React.useState(false);
+
+  function ModalDenuncia(props: any) {
+    function handleClose() {
+      setModalShow(false);
+      return alert("Denúncia Enviada com Sucesso!");
+    }
+
+    return (
+      <Modal
+        {...props}
+        size="lg"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+      >
+        <Modal.Header closeButton>
+          <Modal.Title id="contained-modal-title-vcenter">
+            Denunciar Publicação
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Form className="mb-3">
+            <FormCheck
+              className="fs-5"
+              type="checkbox"
+              label="Conteúdo Ofensivo"
+            />
+            <FormCheck
+              className="fs-5"
+              type="checkbox"
+              label="Informações Falsas"
+            />
+            <FormCheck
+              className="fs-5"
+              type="checkbox"
+              label="Violação de Direitos Autorais"
+            />
+            <FormCheck className="fs-5" type="checkbox" label="Spam" />
+          </Form>
+
+          <h5>Diga-nos mais (opcional)</h5>
+          <textarea className="border-1" id="text_area_denuncia"></textarea>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button onClick={handleClose}> Enviar </Button>
+        </Modal.Footer>
+      </Modal>
+    );
+  }
 
   return (
     <form onSubmit={handlePost} className="mb-4">
@@ -71,7 +125,7 @@ const PublicarForm: FC<PublicarFormProps> = ({ onPublish }) => {
           </div>
         </div>
       </div>
-      <div id="div_botoes_publi" className=" align-items-center">
+      <div id="div_botoes_publi" className=" d-flex align-items-center gap-3 mt-3">
         <button type="submit" className="btn btn-success" title="Enviar">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -87,13 +141,23 @@ const PublicarForm: FC<PublicarFormProps> = ({ onPublish }) => {
         </button>
         <NeWUploadButton
           title="Selecionar imagem"
-          label={
-            <>
+                    label={
+            <span className="d-flex align-items-center">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="35"
+                height="35"
+                fill="currentColor"
+                className="bi bi-paperclip"
+                viewBox="0 0 16 16"
+                style={{ marginRight: 8 }}
+              >
+                <path d="M4.5 3a2.5 2.5 0 0 1 5 0v9a1.5 1.5 0 0 1-3 0V5a.5.5 0 0 1 1 0v7a.5.5 0 0 0 1 0V3a1.5 1.5 0 1 0-3 0v9a2.5 2.5 0 0 0 5 0V5a.5.5 0 0 1 1 0v7a3.5 3.5 0 1 1-7 0z" />
+              </svg>
               <i className="bi bi-image" style={{ marginRight: 8 }}></i>{" "}
-              Selecionar imagem
-            </>
+            </span>
           }
-          variant="outline-secondary"
+          variant="success"
           onFileSelect={(file) => setImage(file)}
         />
         {image && <span className="ms-2">{image.name}</span>}
