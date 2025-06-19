@@ -65,16 +65,18 @@
     width: 80%;
 }
 
-#logo_MUXN:hover.img-overlay-wrap {
+.img-overlay-wrap:hover #logo_MUXN{
     filter: blur(2px);
+}
+
+.img-overlay-wrap:hover #svg_mudar_pfp{
+    opacity: 1;
 }
 
 .img-overlay-wrap svg{
     position: relative;
     top: -95;
     left: 63;
+    opacity: 0;
 }
 
-.img-overlay-wrap svg:hover {
-    visibility: visible;
-}

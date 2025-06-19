@@ -35,8 +35,7 @@ export default function Header_feed() {
                     <Button variant="success" >Publicar</Button>
 
                     <Button variant="success"
-                      >
-                    
+                      onClick={()=>{router.push("/")}}>
                     Sair</Button>
                   </div>
         

@@ -125,7 +125,7 @@ export default function Home() {
                     >
                       <div className="text-center">
                         <div className="avatar avatar-lg mt-n5 mb-3">
-                          <a href="#!">
+                          <a href="/perfil">
                             {" "}
                             <Image
                               className="avatar-img rounded-circle border d-inline"
@@ -305,7 +305,7 @@ export default function Home() {
                       </div>
                     </div>
                     <div id="div_botoes_publi" className=" align-items-center">
-                      <a href="/apoio">
+                      <a href="">
                       <Button variant="success" className="me-2" title="Enviar">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
