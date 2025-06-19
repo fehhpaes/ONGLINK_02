@@ -14,14 +14,15 @@ import logo_instagram from "@/src/app/img/icons/instagram_6422200.png";
 import logo_twitter from "@/src/app/img/icons/twitter_5968830.png";
 import logo_facebook from "@/src/app/img/icons/social_12942738.png";
 // import Button from '@/src/app/components/button/button';
-import { Button, Image, Alert } from "react-bootstrap";
+import { Button, Image, Alert, Container } from "react-bootstrap";
 import { useRouter } from "next/navigation";
 import UploadButton from "@/src/app/components/button/UploadButton";
 import ConfirmationButton from "@/src/app/components/button/ConfirmationButton";
 import "@/src/app/CSS/apoio.css";
 import { Router } from "next/router";
 import Header_Apoio from "../components/Header_Apoio";
-
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 export default function Apoio() {
   const [file, setFile] = useState<File | null>(null);
@@ -64,52 +65,137 @@ export default function Apoio() {
   };
 
   return (
-  <>
-    <Header_Apoio/>
-    <main> {/*className="bg-body-secondary p-2" id="main_feed" */}
-      {/* <!--Main-->  */}
-      <div className="container">
-        <div className="row g-4">
-          <div className="col-lg-3">
-            <div className="offcanvas-body d-block px-2 px-lg-0">
-              <div className="card overflow-hidden">
-                <div className="h-50px">
-                  <div className="card-body pt-0 bg-success-subtle">
-                    <div className="text-center">
-                      <div className="avatar avatar-lg mt-n5 mb-3">
-                        <a href="#!">
-                          {" "}
-                          <NextImage
-                            className="avatar-img rounded-circle border d-inline"
-                            src={MuxnLogo1}
-                            alt="logo_muxn"
-                            width={100}
-                            height={100}
-                          />
-                        </a>
-                      </div>
+    <>
+      <Header_Apoio />
+      <main>
+        {" "}
+        {/*className="bg-body-secondary p-2" id="main_feed" */}
+        {/* <!--Main-->  */}
+        <div className="container">
+          <div className="row g-4">
+            <div className="col-lg-3">
+              <div className="offcanvas-body d-block px-2 px-lg-0">
+                <div className="card overflow-hidden">
+                  <div className="h-50px">
+                    <div className="card-body pt-0 bg-success-subtle">
+                      <div className="text-center">
+                        <div className="avatar avatar-lg mt-n5 mb-3">
+                          <a href="#!">
+                            {" "}
+                            <NextImage
+                              className="avatar-img rounded-circle border d-inline"
+                              src={MuxnLogo1}
+                              alt="logo_muxn"
+                              width={100}
+                              height={100}
+                            />
+                          </a>
+                        </div>
 
-                      <h5 className="mb-0"> MUXN </h5>
-                      <small>Tecnologia</small>
-                      <p className="mt-3">
-                        Por um planeta melhor através da tecnologia.{" "}
-                      </p>
+                        <h5 className="mb-0"> MUXN </h5>
+                        <small>Tecnologia</small>
+                        <p className="mt-3">
+                          Por um planeta melhor através da tecnologia.{" "}
+                        </p>
 
-                      <div className="hstack gap-2 gap-xl-3 justify-content-center">
+                        <div className="hstack gap-2 gap-xl-3 justify-content-center">
+                          <div>
+                            <h6 className="mb-0">3</h6>
+                            <small>Projetos Apoiados</small>
+                          </div>
+                        </div>
+
                         <div>
-                          <h6 className="mb-0">3</h6>
-                          <small>Projetos Apoiados</small>
+                          <small> Contato +55 (15) 3333-3333</small>
+                        </div>
+                        <div>
+                          <small> contato@muxn.com.br</small>
+                        </div>
+                        <div>
+                          <ul className="list-unstyled d-flex justify-content-center">
+                            <li className="">
+                              <a
+                                className="link-body-emphasis"
+                                href="https://x.com/?lang=pt-br"
+                              >
+                                <NextImage
+                                  src={logo_twitter}
+                                  alt=""
+                                  className="bi"
+                                  width={24}
+                                  height={24}
+                                />
+                              </a>
+                            </li>
+                            <li className="ms-3">
+                              <a
+                                className="link-body-emphasis"
+                                href="https://www.instagram.com/"
+                              >
+                                <NextImage
+                                  src={logo_instagram}
+                                  alt=""
+                                  className="bi"
+                                  width={24}
+                                  height={24}
+                                ></NextImage>
+                              </a>
+                            </li>
+                            <li className="ms-3">
+                              <a
+                                className="link-body-emphasis"
+                                href="https://www.facebook.com/"
+                              >
+                                <NextImage
+                                  src={logo_facebook}
+                                  alt=""
+                                  className="bi"
+                                  width={24}
+                                  height={24}
+                                ></NextImage>
+                              </a>
+                            </li>
+                          </ul>
                         </div>
                       </div>
 
+                      <hr></hr>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="col-md-8 col-lg-6 vstack gap-4">
+              <div className="bg-success p-2 ">
+                {/*FIM DO MENU LATERAL*/}
+                <div className="d-flex mt-4 justify-content-center">
+                  <h1>OBRIGADO POR APOIAR ESSA CAMPANHA</h1>
+                </div>
+                {/* <!-- LOGO/IMAGEM --> */}
+                <div className="d-flex align-items-center justify-content-start flex-wrap p-3">
+                  {/* Box do avatar e informações */}
+
+                  <div className="highlight-box d-flex justify-content-star flex-wrap p-3">
+                    <div className="avatar-container">
+                      <NextImage
+                        className="avatar-img rounded-circle"
+                        src={Arara}
+                        alt="Avatar"
+                        height={100}
+                        width={100}
+                      />
+                    </div>
+
+                    <div className="info-container ms-3">
+                      <h2> Ambiental Force </h2>
                       <div>
                         <small> Contato +55 (15) 3333-3333</small>
                       </div>
                       <div>
-                        <small> contato@muxn.com.br</small>
+                        <small> contato@contato.com.br</small>
                       </div>
                       <div>
-                        <ul className="list-unstyled d-flex justify-content-center">
+                        <ul className="list-unstyled d-flex ">
                           <li className="">
                             <a
                               className="link-body-emphasis"
@@ -155,132 +241,64 @@ export default function Apoio() {
                         </ul>
                       </div>
                     </div>
-
-                    <hr></hr>
                   </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="col-md-8 col-lg-6 vstack gap-4">
-            <div className="bg-success p-2 ">
-              {/*FIM DO MENU LATERAL*/}
-              <div className="d-flex mt-4 justify-content-center">
-                <h1>OBRIGADO POR APOIAR ESSA CAMPANHA</h1>
-              </div>
-              {/* <!-- LOGO/IMAGEM --> */}
-<div className="d-flex align-items-center justify-content-start flex-wrap p-3">
-  {/* Box do avatar e informações */}
 
-              <div className="highlight-box d-flex justify-content-star flex-wrap p-3">
-                <div className="avatar-container">
-                  <NextImage
-                    className="avatar-img rounded-circle"
-                    src={Arara}
-                    alt="Avatar"
-                    height={100}
-                    width={100}
-                  />
-                </div>
+                  <div className="card-body flex-grow-1 justify-content-center ms-5">
+                    <h4>Já realizou seu apoio?</h4>
 
-                <div className="info-container ms-3">
-                  <h2> Ambiental Force </h2>
-                  <div>
-                    <small> Contato +55 (15) 3333-3333</small>
-                  </div>
-                  <div>
-                    <small> contato@contato.com.br</small>
-                  </div>
-                  <div>
-                    <ul className="list-unstyled d-flex ">
-                      <li className="">
-                        <a
-                          className="link-body-emphasis"
-                          href="https://x.com/?lang=pt-br"
-                        >
-                          <NextImage
-                            src={logo_twitter}
-                            alt=""
-                            className="bi"
-                            width={24}
-                            height={24}
-                          />
-                        </a>
-                      </li>
-                      <li className="ms-3">
-                        <a
-                          className="link-body-emphasis"
-                          href="https://www.instagram.com/"
-                        >
-                          <NextImage
-                            src={logo_instagram}
-                            alt=""
-                            className="bi"
-                            width={24}
-                            height={24}
-                          ></NextImage>
-                        </a>
-                      </li>
-                      <li className="ms-3">
-                        <a
-                          className="link-body-emphasis"
-                          href="https://www.facebook.com/"
-                        >
-                          <NextImage
-                            src={logo_facebook}
-                            alt=""
-                            className="bi"
-                            width={24}
-                            height={24}
-                          ></NextImage>
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-
-              <div className="card-body flex-grow-1 justify-content-center ms-5">
-                <h4>Já realizou seu apoio?</h4>
-
-                <div>
-                  <UploadButton
-                    onFileSelect={confirmaArquivoSelecionado}
-                    label="Selecionar Documento"
-                  />
-                  {previewUrl && (
-                    <div
-                      style={{
-                        marginTop: "12px",
-                        position: "relative",
-                        width: "200px",
-                        height: "200px",
-                      }}
-                    >
-                      <Image
-                        src={previewUrl}
-                        alt="Preview"
-                        style={{
-                          width: "100%",
-                          height: "100%",
-                          objectFit: "contain",
-                        }}
+                    <div>
+                      <UploadButton
+                        onFileSelect={confirmaArquivoSelecionado}
+                        label="Selecionar Documento"
                       />
-                    </div>
-                  )}
+                      {previewUrl && (
+                        <div
+                          style={{
+                            marginTop: "12px",
+                            position: "relative",
+                            width: "200px",
+                            height: "200px",
+                          }}
+                        >
+                          <Image
+                            src={previewUrl}
+                            alt="Preview"
+                            style={{
+                              width: "100%",
+                              height: "100%",
+                              objectFit: "contain",
+                            }}
+                          />
+                        </div>
+                      )}
 
-                  <ConfirmationButton
-                    onConfirm={confirmarEnvio}
-                    isFileReady={!!file}
-                  />
+                      <ConfirmationButton
+                        onConfirm={confirmarEnvio}
+                        isFileReady={!!file}
+                      />
+                      <Container>
+                        <Row>
+                          {" "}
+                          <Col md={{ span: 6, offset: 7 }}>
+                            <Button
+                              className="mt-3 "
+                              title="Retornar ao feed"
+                              variant="outline-light"
+                              href="/feed"
+                            >
+                              Retornar ao feed
+                            </Button>
+                          </Col>
+                        </Row>
+                      </Container>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
             </div>
           </div>
         </div>
-      </div>
-    </main>
+      </main>
     </>
   );
 }

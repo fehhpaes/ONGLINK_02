@@ -17,6 +17,7 @@ function UploadButton({
   onClick,
   variant = 'primary',
   label,
+  title, // adicionando o prop title aqui
 }: UploadButtonProps) {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
@@ -48,14 +49,35 @@ function UploadButton({
         ref={fileInputRef}
         onChange={handleFileChange}
       />
-      <Button title="" variant={variant} onClick={handleClick}>
+      <Button title={title} variant={variant} onClick={handleClick}>
         {label}
       </Button>
 
-      
+      {previewUrl && (
+        <div
+          style={{
+            marginTop: "12px",
+            position: "relative",
+            width: "200px",
+            height: "200px",
+          }}
+        >
+          <Image
+            src={previewUrl}
+            alt="Preview"
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "contain",
+            }}
+            // Se estiver utilizando o Next.js 13, considere passar as props width e height.
+            width={200}
+            height={200}
+          />
+        </div>
+      )}
     </div>
   );
 }
-
 
 export default UploadButton;

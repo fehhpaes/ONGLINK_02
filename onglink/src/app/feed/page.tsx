@@ -18,6 +18,7 @@ import logo_facebook from "@/src/app/img/icons/social_12942738.png";
 import { Button, Modal, Form, FormCheck, Alert } from "react-bootstrap";
 import Header_feed from "../components/header_feed";
 import UploadButton from "../components/button/UploadButton";
+import FeedPage from "../components/FeedPage";
 
 export default function Home() {
   const [file, setFile] = useState<File | null>(null);
@@ -45,6 +46,7 @@ export default function Home() {
       setPreviewUrl(null);
     }
   };
+ 
 
   const confirmarEnvio = () => {
     if (!file) return;
@@ -64,6 +66,9 @@ export default function Home() {
       return(
         alert("Denúncia Enviada com Sucesso!"));
     }
+  
+   
+
 
     return (
       <Modal
@@ -203,50 +208,7 @@ export default function Home() {
                           </ul>
                         </div>
                       </div>
-
                       <hr></hr>
-
-                      {/* <ul className="nav nav-link d-flex align-items-center flex-column fw-bold gap-2">
-                    <li className="nav-item">
-                      <a className="nav-link d-flex align-items-center gap-2" href="perfil.html"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-pencil-square" viewBox="0 0 16 16">
-                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-                        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
-                        </svg><span> Perfil</span></a>
-                    </li>
-                    <li className="nav-item">
-                        <a className="nav-link d-flex align-items-center gap-2" href=""> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-house" viewBox="0 0 16 16">
-                          <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z"/>
-                        </svg><span> Feed </span></a>
-                    </li>
-                    <li className="nav-item">
-                      <a className="nav-link d-flex align-items-center gap-2" href="publicacao_nova.html"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-newspaper" viewBox="0 0 16 16">
-                        <path d="M0 2.5A1.5 1.5 0 0 1 1.5 1h11A1.5 1.5 0 0 1 14 2.5v10.528c0 .3-.05.654-.238.972h.738a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 1 1 0v9a1.5 1.5 0 0 1-1.5 1.5H1.497A1.497 1.497 0 0 1 0 13.5zM12 14c.37 0 .654-.211.853-.441.092-.106.147-.279.147-.531V2.5a.5.5 0 0 0-.5-.5h-11a.5.5 0 0 0-.5.5v11c0 .278.223.5.497.5z"/>
-                        <path d="M2 3h10v2H2zm0 3h4v3H2zm0 4h4v1H2zm0 2h4v1H2zm5-6h2v1H7zm3 0h2v1h-2zM7 8h2v1H7zm3 0h2v1h-2zm-3 2h2v1H7zm3 0h2v1h-2zm-3 2h2v1H7zm3 0h2v1h-2z"/>
-                      </svg><span> Publicar</span></a>
-                    </li>
-                    
-                    <li className="nav-item">
-                      <a className="nav-link d-flex align-items-center gap-2" href="publicacao_nova.html"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-calendar-event" viewBox="0 0 16 16">
-                        <path d="M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5z"/>
-                        <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z"/>
-                      </svg><span> Eventos</span></a>
-                    </li>
-                    <li className="nav-item">
-                      <a className="nav-link d-flex align-items-center gap-2" href="ADM_aprovacao.html"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-box-arrow-left" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0z"/>
-                        <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708z"/>
-                      </svg><span> Aprovação</span></a>
-                    </li>
-
-                    <li className="nav-item">
-                      <a className="nav-link d-flex align-items-center gap-2" href="index.html"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-box-arrow-left" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0z"/>
-                        <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708z"/>
-                      </svg><span> Sair</span></a>
-                    </li>
-                    
-                    
-                  </ul> */}
                     </div>
                   </div>
                 </div>
@@ -282,11 +244,13 @@ export default function Home() {
                             rows={1}
                             data-autoresize=""
                             placeholder="Título"
-                            onInput={(e) => {
-                              const target = e.target as HTMLTextAreaElement;
-                              target.style.height = "auto";
-                              target.style.height = `${target.scrollHeight}px`;
-                            }}
+                            // onChange={(e) => setTitle(e.target.value)}
+                            // onInput={(e) => {
+                            //   const target = e.target as HTMLTextAreaElement;
+                            //   target.style.height = "auto";
+                            //   target.style.height = `${target.scrollHeight}px`;
+                            //}
+                          //}
                           />
                         </form>
                         <form className="w-100">
@@ -295,18 +259,20 @@ export default function Home() {
                             rows={5}
                             data-autoresize=""
                             placeholder="Editar publicação"
-                            onInput={(e) => {
-                              const target = e.target as HTMLTextAreaElement;
-                              target.style.height = "auto";
-                              target.style.height = `${target.scrollHeight}px`;
-                            }}
+                            // onChange={(e) => setMessage(e.target.value)}
+
+                            // onInput={(e) => {
+                            //   const target = e.target as HTMLTextAreaElement;
+                            //   target.style.height = "auto";
+                            //   target.style.height = `${target.scrollHeight}px`;
+                            // }}
                           />
                         </form>
                       </div>
                     </div>
                     <div id="div_botoes_publi" className=" align-items-center">
                       <a href="">
-                      <Button variant="success" className="me-2" title="Enviar">
+                      <Button variant="success" className="me-2" title="Enviar" >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width="35"
@@ -320,7 +286,42 @@ export default function Home() {
                         </svg>
                       </Button>
                       </a>
-                      <Button variant="success">
+                      <UploadButton
+                        onFileSelect={confirmaArquivoSelecionado}
+                        title="Selecionar imagem"
+                        label={<svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="35"
+                          height="35"
+                          fill="currentColor"
+                          stroke=""
+                          className="bi bi-paperclip"
+                          viewBox="0 0 16 16"
+                                                >
+                          <path d="M4.5 3a2.5 2.5 0 0 1 5 0v9a1.5 1.5 0 0 1-3 0V5a.5.5 0 0 1 1 0v7a.5.5 0 0 0 1 0V3a1.5 1.5 0 1 0-3 0v9a2.5 2.5 0 0 0 5 0V5a.5.5 0 0 1 1 0v7a3.5 3.5 0 1 1-7 0z" />
+                        </svg>}
+                      />
+                      {previewUrl && (
+                        <div
+                          style={{
+                            marginTop: "12px",
+                            position: "relative",
+                            width: "200px",
+                            height: "200px",
+                          }}
+                        >
+                          <Image
+                            src={previewUrl}
+                            alt="Preview"
+                            style={{
+                              width: "100%",
+                              height: "100%",
+                              objectFit: "contain",
+                            }}
+                          />
+                        </div>
+                      )}
+                      {/* <Button variant="success" title="anexar documento">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width="35"
@@ -332,13 +333,15 @@ export default function Home() {
                         >
                           <path d="M4.5 3a2.5 2.5 0 0 1 5 0v9a1.5 1.5 0 0 1-3 0V5a.5.5 0 0 1 1 0v7a.5.5 0 0 0 1 0V3a1.5 1.5 0 1 0-3 0v9a2.5 2.5 0 0 0 5 0V5a.5.5 0 0 1 1 0v7a3.5 3.5 0 1 1-7 0z" />
                         </svg>
-                      </Button>
+                      </Button> */}
                     </div>
                   </div>
                 </div>
 
-                <div className="b-example-divider"></div>
+                <FeedPage/>
 
+                <div className="b-example-divider"></div>
+      
                 <div id="post1" className=" mt-3">
                   <div id="subdiv_post1">
                     <div className="d-flex mt-4">

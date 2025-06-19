@@ -23,6 +23,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/components/modal_denunciar.jsx", "src/app/components/Header_Apoio.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/components/modal_denunciar.jsx", "src/app/components/Header_Apoio.jsx", "src/app/components/HandlePost.jsx"],
   "exclude": ["node_modules"]
 }
