@@ -78,7 +78,7 @@ export default function Parceiros() {
                       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQK5BHvoSw8GrviF5fAAR_lglGGMb3A9PLPVQ&s" alt="ONG 2" width="200" height="200"></img>
                       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGfY25pju0v7n79WHdaRlniPJ89Sr_5rIqzQ&s" alt="ONG 3" width="200" height="200"></img>
                       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmv4arjlMrbmy2F_BCHREuzBG7hA0KbzCTzw&s" alt="ONG 4" width="200" height="200"></img>
-                      <img src="https://logowik.com/content/uploads/images/ong38254.logowik.com.webp" alt="ONG 5" width="200" height="200"></img>
+                      <img src="https://i0.wp.com/cdhpf.org.br/wp-content/uploads/2012/03/ong-brasil-logo.jpg?fit=308%2C448&ssl=1" alt="ONG 5" width="150" height="200"></img>
                     </div>
                 </div>
 

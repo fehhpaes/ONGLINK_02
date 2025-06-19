@@ -67,10 +67,12 @@
 
 .img-overlay-wrap:hover #logo_MUXN{
     filter: blur(2px);
+    cursor: pointer;
 }
 
 .img-overlay-wrap:hover #svg_mudar_pfp{
     opacity: 1;
+    cursor: pointer;
 }
 
 .img-overlay-wrap svg{
