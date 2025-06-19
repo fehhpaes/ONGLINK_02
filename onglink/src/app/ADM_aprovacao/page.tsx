@@ -1,19 +1,24 @@
 "use client";
 
-import Header_ADM_aprovacao from "@/src/app/components/header_ADM_aprovacao";
+import Header_feed from "@/src/app/components/header_feed";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "@/src/app/CSS/feed.css";
+import "@/src/app/CSS/header_alt.css";
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useRouter } from "next/navigation";
 import { ICadastro } from "./ICadastro";
-import { Modal, Button } from 'react-bootstrap';
+import { ApprovalTable } from '@/src/app/components/tabela_adm/ApprovalTable';
+import { ApprovalTableRow } from '../components/tabela_adm/ApprovalTableRow';
+import { ImageModal } from '@/src/app/components/tabela_adm/ImageModal';
+import { FileModal } from '@/src/app/components/tabela_adm/FileModal';
+import { ApprovalModal } from '@/src/app/components/tabela_adm/ApprovalModal';
 
 export default function ADM_aprovacao() {
     const [products, setProducts] = useState<ICadastro[]>([]);
     const router = useRouter();
-    const [showImageModal, setShowImageModal] = useState(false);
-    const [showImageModal2, setShowImageModal2] = useState(false);
-    const [showFileModal1, setShowFileModal1] = useState(false);
-    const [showFileModal2, setShowFileModal2] = useState(false);
+    const [showImageModal, setShowImageModal] = useState<'images1' | 'images2' | null>(null);
+    const [showFileModal, setShowFileModal] = useState<'files1' | 'files2' | null>(null);
     const [showAprovacaoModal, setShowAprovacaoModal] = useState(false);
     const [zoomedImage, setZoomedImage] = useState<string | null>(null);
 
@@ -52,305 +57,124 @@ export default function ADM_aprovacao() {
         "https://images.pexels.com/photos/1387037/pexels-photo-1387037.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
     ];
 
+    const fileUrls1 = [
+        "https://diariooficial.imprensaoficial.com.br/doflash/prototipo/2024/Novembro/04/exec3/pdf/pg_0001.pdf",
+        "https://diariooficial.imprensaoficial.com.br/doflash/prototipo/2024/Novembro/04/municipios/pdf/pg_0001.pdf"
+    ];
+
+    const fileUrls2 = [
+        "https://do-api-publication-pdf.doe.sp.gov.br/v1/editions/2346d204-a2ac-4c75-8d22-5d1a70e8737c",
+        "https://noticias.sorocaba.sp.gov.br/wp-content/uploads/2025/06/noticias.sorocaba.sp.gov.br-3737-18-de-junho-de-2025.pdf"
+    ];
+
+    // Dados mockados para a tabela (substitituir pelas informações depois que tiver conexão com o banco de dados)
+    const tableData = [
+        {
+            id: "0111",
+            requestType: "Criar Conta",
+            orgName: "ONGExemplo 1",
+            responsibleName: "Costa Silva",
+            requestDate: "16/11/2024",
+            status: "Negada",
+            obs: "Documentos enviados estão com informações faltantes",
+            approvalResponsible: "Cláudio Willian Moura Henrique"
+        },
+        {
+            id: "0112",
+            requestType: "Reportar Publicação",
+            orgName: "MUNDO.Company",
+            responsibleName: "Cleber Helio de Souza",
+            requestDate: "17/11/2024",
+            status: "Aprovado",
+            obs: "Tudo certo",
+            approvalResponsible: "Cláudio Willian Moura Henrique"
+        },
+        {
+            id: "0113",
+            requestType: "Reportar Publicação",
+            orgName: "Testes.INC",
+            responsibleName: "Roberto Gomes",
+            requestDate: "17/11/2024",
+            status: "Não Avaliado",
+            obs: "",
+            approvalResponsible: ""
+        },
+        {
+            id: "0114",
+            requestType: "Criar Conta",
+            orgName: "ONGExemplo 2",
+            responsibleName: "Leonardo da Silva",
+            requestDate: "17/11/2024",
+            status: "Em Aprovação",
+            obs: "",
+            approvalResponsible: ""
+        }
+    ];
+
     return (
         <>
-            <Header_ADM_aprovacao/>
+            <Header_feed/>
             <main>
                 <div className="col-12 justify-self-center m-2 p-2" id="div_cont_principal_aprovacao">
                     <h1 className="justify-self-center"> Seja bem vindo, @nome_da_pessoa!</h1>
-                    <div className="col-12" id="div_cont_table">
-                        <div id="div_tabela_aprovacao">
-                            <h4 id="tr_titulo_h4" className="justify-self-center">Aprovação de contas e Denuncias de publicações</h4>
-                            <table className="col-12 border-2 border-gray-600 rounded" id="tabela_aprovacao">
-                                <thead className="col-12 border-2 border-gray-600 rounded">
-                                    
-                                    <tr className=" border-2 border-gray-600 rounded" id="tr_conteudo_tabela_aprovacao">
-                                        <th className=" border-2 border-gray-600 rounded m-1 p-1">Nº da Solicitação</th>
-                                        <th className=" border-2 border-gray-600 rounded m-1 p-1">Tipo de Solicitação</th>
-                                        <th className=" border-2 border-gray-600 rounded m-1 p-1">Nome da ONG/Empresa</th>
-                                        <th className=" border-2 border-gray-600 rounded m-1 p-1">Nome do resp. da ONG/Empresa</th>
-                                        <th className=" border-2 border-gray-600 rounded m-1 p-1">Data da Solicitação</th>
-                                        <th className=" border-2 border-gray-600 rounded m-1 p-1">Status</th>
-                                        <th className=" border-2 border-gray-600 rounded m-1 p-1">Obs</th>
-                                        <th className=" border-2 border-gray-600 rounded m-1 p-1">Visualizar</th>
-                                        <th className=" border-2 border-gray-600 rounded m-1 p-1">Aprovação</th>
-                                        <th className=" border-2 border-gray-600 rounded m-1 p-1">Nome resp. Aprovação</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr className=" border-2 border-gray-600 rounded m-1">
-                                        <td className=" border-2 border-gray-600 rounded m-1 p-1">0111</td>
-                                        <td className=" border-2 border-gray-600 rounded m-1 p-1">Criar Conta</td>
-                                        <td className=" border-2 border-gray-600 rounded m-1 p-1">ONGExemplo 1</td>
-                                        <td className=" border-2 border-gray-600 rounded m-1 p-1">Costa Silva</td>
-                                        <td className=" border-2 border-gray-600 rounded m-1 p-1">16/11/2024</td>
-                                        <td className=" border-2 border-gray-600 rounded m-1 p-1">Negada</td>
-                                        <td className=" border-2 border-gray-600 rounded m-1 p-1">Documentos enviados estão com informações faltantes</td>
-                                        <td className=" border-2 border-gray-600 rounded m-1 p-1">
-                                            <Button variant="primary" onClick={() => setShowFileModal1(true)}>
-                                                Visualizar
-                                            </Button>
-                                        </td>
-                                        <td className=" border-2 border-gray-600 rounded m-1 p-1">
-                                            <Button variant="secondary" onClick={() => setShowAprovacaoModal(true)}>
-                                                Aprovação
-                                            </Button>
-                                        </td>
-                                        <td className=" border-2 border-gray-600 rounded m-1 p-1">Cláudio Willian Moura Henrique</td>
-                                    </tr>
-                                    <tr>
-                                        <td className=" border-2 border-gray-600 rounded m-1 p-1">0112</td>
-                                        <td className=" border-2 border-gray-600 rounded m-1 p-1">Reportar Publicação</td>
-                                        <td className=" border-2 border-gray-600 rounded m-1 p-1">MUNDO.Company</td>
-                                        <td className=" border-2 border-gray-600 rounded m-1 p-1">Cleber Helio de Souza</td>
-                                        <td className=" border-2 border-gray-600 rounded m-1 p-1">17/11/2024</td>
-                                        <td className=" border-2 border-gray-600 rounded m-1 p-1">Aprovado</td>
-                                        <td className=" border-2 border-gray-600 rounded m-1 p-1">Tudo certo</td>                  
-                                        <td className=" border-2 border-gray-600 rounded m-1 p-1">
-                                            <Button variant="primary" onClick={() => setShowImageModal(true)}>
-                                                Visualizar
-                                            </Button>
-                                        </td>
-                                        <td className=" border-2 border-gray-600 rounded m-1 p-1">
-                                            <Button variant="secondary" onClick={() => setShowAprovacaoModal(true)}>
-                                                Aprovação
-                                            </Button>
-                                        </td>
-                                        <td className=" border-2 border-gray-600 rounded m-1 p-1">Rafael Sartori da Costa</td>
-                                    </tr>
-                                    <tr>
-                                        <td className=" border-2 border-gray-600 rounded m-1 p-1">0113</td>                                       <td >Reportar Publicação</td>
-                                        <td className=" border-2 border-gray-600 rounded m-1 p-1">Testes.INC</td>
-                                        <td className=" border-2 border-gray-600 rounded m-1 p-1">Roberto Gomes</td>
-                                        <td className=" border-2 border-gray-600 rounded m-1 p-1">17/11/2024</td>
-                                        <td className=" border-2 border-gray-600 rounded m-1 p-1">Não Avaliado</td>  
-                                        <td className=" border-2 border-gray-600 rounded m-1 p-1"></td>                
-                                        <td className=" border-2 border-gray-600 rounded m-1 p-1">
-                                            <Button variant="primary" onClick={() => setShowImageModal2(true)}>
-                                                Visualizar
-                                            </Button>
-                                        </td>
-                                        <td className=" border-2 border-gray-600 rounded m-1 p-1">
-                                            <Button variant="secondary" onClick={() => setShowAprovacaoModal(true)}>
-                                                Aprovação
-                                            </Button>
-                                        </td>
-                                        <td className=" border-2 border-gray-600 rounded m-1 p-1"></td>
-                                    </tr>
-                                    <tr className=" border-2 border-gray-600 rounded m-1 p-1">
-                                        <td className=" border-2 border-gray-600 rounded m-1 p-1">0114</td>
-                                        <td className=" border-2 border-gray-600 rounded m-1 p-1">Criar Conta</td>
-                                        <td className=" border-2 border-gray-600 rounded m-1 p-1">ONGExemplo 2</td>
-                                        <td className=" border-2 border-gray-600 rounded m-1 p-1">Leonardo da Silva</td>
-                                        <td className=" border-2 border-gray-600 rounded m-1 p-1">17/11/2024</td>
-                                        <td className=" border-2 border-gray-600 rounded m-1 p-1">Em Aprovação</td> 
-                                        <td className=" border-2 border-gray-600 rounded m-1 p-1"></td>                 
-                                        <td className=" border-2 border-gray-600 rounded m-1 p-1">
-                                            <Button variant="primary" onClick={() => setShowFileModal2(true)}>
-                                                Visualizar
-                                            </Button>
-                                        </td>
-                                        <td className=" border-2 border-gray-600 rounded m-1 p-1">
-                                            <Button variant="secondary" onClick={() => setShowAprovacaoModal(true)}>
-                                                Aprovação
-                                            </Button>
-                                        </td>
-                                        <td className=" border-2 border-gray-600 rounded m-1 p-1"></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+                    
+                    <ApprovalTable
+                        data={tableData}
+                        onViewImages={(type) => setShowImageModal(type)}
+                        onViewFiles={(type) => setShowFileModal(type)}
+                        onOpenApproval={() => setShowAprovacaoModal(true)}
+                    />
+                    
 
-                    {/* Modal IMG1 */}
-                    <Modal show={showImageModal} onHide={() => setShowImageModal(false)} size="lg">
-                        <Modal.Header closeButton>
-                            <Modal.Title>Publicação reportada: Ação sobre a diversidade</Modal.Title>
-                        </Modal.Header>
-                        <Modal.Body>
-                            <div className="row">
-                                {imageUrls1.map((url, index) => (
-                                    <div className="col-6 col-md-4 mb-3" key={index}>
-                                        <img 
-                                            src={url} 
-                                            className="img-fluid rounded zoomable" 
-                                            alt={`Imagem ${index + 1}`}
-                                            onClick={() => handleZoomImage(url)}
-                                            style={{ cursor: 'pointer' }}
-                                        />
-                                    </div>
-                                ))}
-                            </div>
-                            <div className="row">
-                                <div className="col-6 col-md-4 mb-3"></div>
-                                <div className="col-6 col-md-4 mb-3">
-                                    <textarea className="form-control" id="observacoes" name="observacoes" rows={4}>
-                                        Primeiro texto de exemplo
-                                    </textarea>
-                                </div>
-                            </div>
-                        </Modal.Body>
-                        <Modal.Footer>
-                            <Button variant="secondary" onClick={() => setShowImageModal(false)}>
-                                Fechar
-                            </Button>
-                        </Modal.Footer>
-                    </Modal>
 
-                    {/* Modal IMG2 */}
-                    <Modal show={showImageModal2} onHide={() => setShowImageModal2(false)} size="lg">
-                        <Modal.Header closeButton>
-                            <Modal.Title>Publicação reportada: ação sobre diversidade</Modal.Title>
-                        </Modal.Header>
-                        <Modal.Body>
-                            <div className="row">
-                                {imageUrls2.map((url, index) => (
-                                    <div className="col-6 col-md-4 mb-3" key={index}>
-                                        <img 
-                                            src={url} 
-                                            className="img-fluid rounded zoomable" 
-                                            alt={`Imagem ${index + 1}`}
-                                            onClick={() => handleZoomImage(url)}
-                                            style={{ cursor: 'pointer' }}
-                                        />
-                                    </div>
-                                ))}
-                            </div>
-                            <div className="row">
-                                <div className="col-6 col-md-4 mb-3"></div>
-                                <div className="col-6 col-md-4 mb-3">
-                                    <textarea className="form-control" id="observacoes" name="observacoes" rows={4}>
-                                        Segundo texto de exemplo
-                                    </textarea>
-                                </div>
-                            </div>
-                        </Modal.Body>
-                        <Modal.Footer>
-                            <Button variant="secondary" onClick={() => setShowImageModal2(false)}>
-                                Fechar
-                            </Button>
-                        </Modal.Footer>
-                    </Modal>
 
-                    {/* Modal PDF_1 */}
-                    <Modal show={showFileModal1} onHide={() => setShowFileModal1(false)} size="lg">
-                        <Modal.Header closeButton>
-                            <Modal.Title>Criação de conta ONG: ONGExemplo 1</Modal.Title>
-                        </Modal.Header>
-                        <Modal.Body>
-                            <div className="row">
-                                <div className="col-12 col-md-6 mb-3">
-                                    <iframe 
-                                        src="https://diariooficial.imprensaoficial.com.br/doflash/prototipo/2024/Novembro/04/exec3/pdf/pg_0001.pdf" 
-                                        className="pdf-viewer" 
-                                        title="PDF"
-                                        style={{ width: '100%', height: '500px' }}
-                                    ></iframe>
-                                </div>
-                                <div className="col-12 col-md-6 mb-3">
-                                    <iframe 
-                                        src="https://diariooficial.imprensaoficial.com.br/doflash/prototipo/2024/Novembro/04/municipios/pdf/pg_0001.pdf" 
-                                        className="pdf-viewer" 
-                                        title="PDF"
-                                        style={{ width: '100%', height: '500px' }}
-                                    ></iframe>
-                                </div>
-                            </div>
-                            <div className="row">
-                                <div className="col-6 col-md-4 mb-3"></div>
-                                <div className="col-6 col-md-4 mb-3">
-                                    <textarea className="form-control" id="observacoes" name="observacoes" rows={4}>
-                                        Texto de exemplo
-                                    </textarea>
-                                </div>
-                            </div>
-                        </Modal.Body>
-                        <Modal.Footer>
-                            <Button variant="secondary" onClick={() => setShowFileModal1(false)}>
-                                Fechar
-                            </Button>
-                        </Modal.Footer>
-                    </Modal>
+                    {/* Modais */}
+                    <ImageModal
+                        show={showImageModal === 'images1'}
+                        onHide={() => setShowImageModal(null)}
+                        title="Publicação reportada: Ação sobre a diversidade"
+                        imageUrls={imageUrls1}
+                        initialText="Primeiro texto de exemplo"
+                        onZoomImage={handleZoomImage}
+                    />
 
-                    {/* Modal PDF_2 */}
-                    <Modal show={showFileModal2} onHide={() => setShowFileModal2(false)} size="lg">
-                        <Modal.Header closeButton>
-                            <Modal.Title>Criação de conta ONG: ONGExemplo 2</Modal.Title>
-                        </Modal.Header>
-                        <Modal.Body>
-                            <div className="row">
-                                <div className="col-12 col-md-6 mb-3">
-                                    <iframe 
-                                        src="https://www.alunos.diaadia.pr.gov.br/arquivos/File/gremio_estudantil/modelo_ata_reuniao__1.pdf" 
-                                        className="pdf-viewer" 
-                                        title="PDF"
-                                        style={{ width: '100%', height: '500px' }}
-                                    ></iframe>
-                                </div>
-                                <div className="col-12 col-md-6 mb-3">
-                                    <iframe 
-                                        src="https://formularios2.mec.gov.br/images/documentos_pdde/exemplo_ata_campo.pdf" 
-                                        className="pdf-viewer" 
-                                        title="PDF"
-                                        style={{ width: '100%', height: '500px' }}
-                                    ></iframe>
-                                </div>
-                            </div>
-                            <div className="row">
-                                <div className="col-6 col-md-4 mb-3"></div>
-                                <div className="col-6 col-md-4 mb-3">
-                                    <textarea className="form-control" id="observacoes" name="observacoes" rows={4}>
-                                        Texto de exemplo
-                                    </textarea>
-                                </div>
-                            </div>
-                        </Modal.Body>
-                        <Modal.Footer>
-                            <Button variant="secondary" onClick={() => setShowFileModal2(false)}>
-                                Fechar
-                            </Button>
-                        </Modal.Footer>
-                    </Modal>
+                    <ImageModal
+                        show={showImageModal === 'images2'}
+                        onHide={() => setShowImageModal(null)}
+                        title="Publicação reportada: ação sobre diversidade"
+                        imageUrls={imageUrls2}
+                        initialText="Segundo texto de exemplo"
+                        onZoomImage={handleZoomImage}
+                    />
 
-                    {/* Modal Aprovações */}
-                    <Modal show={showAprovacaoModal} onHide={() => setShowAprovacaoModal(false)}>
-                        <Modal.Header closeButton>
-                            <Modal.Title>Aprovação</Modal.Title>
-                        </Modal.Header>
-                        <Modal.Body>
-                            <div className="row">
-                                <div className="col-12 col-md-6 mb-3">
-                                    <p></p>
-                                    <p></p>
-                                    <Button variant="success" id="btn_modal_aprovar">
-                                        Aprovado
-                                    </Button>
-                                </div>
-                                <div className="col-12 col-md-6 mb-3">
-                                    <p></p>
-                                    <p></p>
-                                    <Button variant="danger" id="btn_modal_reprovar">
-                                        Negado
-                                    </Button>
-                                </div>
-                                <div className="col-8 col-md-12 mb-3">
-                                    <label htmlFor="obs_modal_aprovacao">Observações</label>
-                                    <p></p>
-                                    <textarea 
-                                        className="form-control"
-                                        name="obs_modal_aprovacao" 
-                                        id="obs_modal_aprovacao"
-                                        rows={4}
-                                    ></textarea>
-                                </div>
-                            </div>
-                        </Modal.Body>
-                        <Modal.Footer>
-                            <Button variant="secondary" onClick={() => setShowAprovacaoModal(false)}>
-                                Fechar
-                            </Button>
-                        </Modal.Footer>
-                    </Modal>
+                    <FileModal
+                        show={showFileModal === "files1"}
+                        onHide={() => setShowFileModal(null)}
+                        title="Criacao de conta ONG: ONGExemplo 1"
+                        fileUrls={[fileUrls1[0], fileUrls1[1]]}
+                        initialText="Texto de exemplo"
+                    />
+
+                    <FileModal
+                        show={showFileModal === "files2"}
+                        onHide={() => setShowFileModal(null)}
+                        title="Criacao de conta ONG: ONGExemplo 1"
+                        fileUrls={[fileUrls2[0], fileUrls2[1]]}
+                        initialText="Texto de exemplo"
+                    />
+
+                    <ApprovalModal
+                        show={showAprovacaoModal}
+                        onHide={() => setShowAprovacaoModal(false)}
+                        onApprove={() => {
+                            console.log('Aprovado');
+                            setShowAprovacaoModal(false);
+                        }}
+                        onReject={() => {
+                            console.log('Rejeitado');
+                            setShowAprovacaoModal(false);
+                        }}
+                    />
 
                     {/* Overlay de Zoom */}
                     {zoomedImage && (
