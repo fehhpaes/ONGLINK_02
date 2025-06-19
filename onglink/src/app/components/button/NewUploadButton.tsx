@@ -4,7 +4,7 @@ import React, { useRef, useState } from 'react';
 import Image from 'next/image';
 import { Button } from 'react-bootstrap';
 
-type UploadButtonProps = {
+type NewUploadButtonProps = {
   onFileSelect?: (file: File) => void;
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   variant?: string;
@@ -12,13 +12,13 @@ type UploadButtonProps = {
   title?: string;
 };
 
-function UploadButton({
+function NewUploadButton({
   onFileSelect,
   onClick,
   variant = 'primary',
   label,
   title, // adicionando o prop title aqui
-}: UploadButtonProps) {
+}: NewUploadButtonProps) {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
 
@@ -53,7 +53,7 @@ function UploadButton({
         {label}
       </Button>
 
-      {previewUrl && (
+      {/* {previewUrl && (
         <div
           style={{
             marginTop: "12px",
@@ -75,9 +75,9 @@ function UploadButton({
             height={200}
           />
         </div>
-      )}
+      )} */}
     </div>
   );
 }
 
-export default UploadButton;
+export default NewUploadButton;

@@ -1,12 +1,12 @@
 "use client";
 import React, { FC } from "react";
 import Image from "next/image";
-import MuxnLogo1 from "@/src/app/img/MUXN_logo1.png"
-
+import MuxnLogo1 from "@/src/app/img/MUXN_logo1.png";
 
 interface Post {
   title: string;
   message: string;
+  image?: File | null;
 }
 
 interface FeedPostProps {
@@ -14,8 +14,10 @@ interface FeedPostProps {
 }
 
 const FeedPost: FC<FeedPostProps> = ({ post }) => {
+  const imageURL = post.image ? URL.createObjectURL(post.image) : null;
+
   return (
-     <div className="feed-item mb-3 d-flex align-items-start">
+    <div className="feed-item mb-3 d-flex align-items-start">
       {/* Avatar */}
       <div className="avatar avatar-xs me-2">
         <a href="#">
@@ -29,15 +31,19 @@ const FeedPost: FC<FeedPostProps> = ({ post }) => {
         </a>
       </div>
       {/* Conteúdo da Postagem */}
-      <div>
+      <div className="feed-content">
         <h3>{post.title}</h3>
         <p>{post.message}</p>
-        <div className="b-example-divider"></div>
+        {imageURL && (
+          <img
+            src={imageURL}
+            alt="Imagem da publicação"
+            style={{ maxWidth: "100%", marginTop: 8 }}
+          />
+        )}
       </div>
-       
     </div>
   );
 };
 
 export default FeedPost;
-
