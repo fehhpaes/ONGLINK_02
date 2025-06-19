@@ -112,7 +112,7 @@ const PublicarForm: FC<PublicarFormProps> = ({ onPublish }) => {
               <textarea
                 className="form-control"
                 rows={5}
-                placeholder="Editar publicação"
+                placeholder="Descrição"
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
                 onInput={(e) => {

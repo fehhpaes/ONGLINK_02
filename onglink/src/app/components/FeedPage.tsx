@@ -23,7 +23,7 @@ const FeedPage: React.FC = () => {
       </div>
       <div className="mt-4">
         {posts.length === 0 ? (
-          <p className="text-center">Nenhuma publicação ainda.</p>
+          <p className="text-center"></p>
         ) : (
           posts.map((post, index) => <FeedPost key={index} post={post} />)
         )}

@@ -3,6 +3,7 @@ import React, { FC, useState } from "react";
 import Image from "next/image";
 import MuxnLogo1 from "@/src/app/img/MUXN_logo1.png";
 import { Button, Modal, Form, FormCheck } from "react-bootstrap";
+import "@/src/app/CSS/feed.css"
 
 interface Post {
   title: string;
@@ -60,7 +61,8 @@ const FeedPost: FC<FeedPostProps> = ({ post }) => {
   return (
   <>
       <ModalDenuncia show={modalShow} onHide={() => setModalShow(false)} />
-
+ <div style={{ backgroundColor: "#3b481dc4" }}  className="container-fluid col-12 vstack gap-4 p-3 rounded-4">
+      
     <div className="feed-item mb-3 d-flex align-items-start">
       {/* Avatar */}
       <div className="avatar avatar-xs me-2">
@@ -75,7 +77,7 @@ const FeedPost: FC<FeedPostProps> = ({ post }) => {
         </a>
       </div>
       {/* Conteúdo da Postagem */}
-      <div className="feed-content">
+     <div className="feed-content">
         <h3>{post.title}</h3>
         <p>{post.message}</p>
         {imageURL && (
@@ -176,7 +178,10 @@ const FeedPost: FC<FeedPostProps> = ({ post }) => {
                           </Button>
                       </div>
       </div>
+      </div>
+                      
     </div>
+    <div className="b-example-divider mt-3 mb-3"></div>
     </>
   );
 };
