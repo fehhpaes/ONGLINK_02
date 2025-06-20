@@ -65,7 +65,8 @@ const FeedPost: FC<FeedPostProps> = ({ post }) => {
       
     <div className="feed-item mb-3 d-flex align-items-start">
       {/* Avatar */}
-      <div className="avatar avatar-xs me-2">
+      <div className="avatar avatar-xs me-2 "
+      style={{ minWidth: "60px" }}>
         <a href="#">
           <Image
             className="avatar-img rounded-circle"
@@ -86,7 +87,7 @@ const FeedPost: FC<FeedPostProps> = ({ post }) => {
               src={imageURL}
               alt="Imagem da publicação"
               style={{ maxWidth: "auto", marginTop: 8, height:"auto"}}
-              //className="w-full h-full object-cover"
+              
               
             />
           </div>

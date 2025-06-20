@@ -82,7 +82,8 @@ const PublicarForm: FC<PublicarFormProps> = ({ onPublish }) => {
       <div className="container-fluid col-12 vstack gap-4 p-0">
         <div className="d-flex mt-3 mb-3">
           {/* Avatar */}
-          <div className="avatar avatar-xs me-2">
+          <div className="avatar avatar-xs me-2"
+          style={{ minWidth: "60px" }}>
             <a href="#">
               <Image
                 className="avatar-img rounded-circle"
