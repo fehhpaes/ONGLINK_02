@@ -32,7 +32,7 @@ export default function Header_feed() {
                       onClick={()=>{router.push("/perfil")}}> 
                       Perfil</Button>
 
-                    <Button variant="success" >Publicar</Button>
+                    <Button variant="success" onClick={()=>{router.push("/feed")}}> Publicar</Button>
 
                     <Button variant="success"
                       onClick={()=>{router.push("/")}}>
