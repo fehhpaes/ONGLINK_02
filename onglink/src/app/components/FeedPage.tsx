@@ -21,7 +21,7 @@ const FeedPage: React.FC = () => {
       <div id="subdiv_publicar" className="p-3">
         <PublicarForm onPublish={addPost} />
       </div>
-      <div className="mt-4">
+      <div className="mt-4" id="div_pub">
         {posts.length === 0 ? (
           <p className="text-center"></p>
         ) : (

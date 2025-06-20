@@ -414,7 +414,7 @@ export default function Home() {
                   {/* <div className="col-md-8 col-lg-6 vstack gap-4"> */}
                     {" "}
                     {/* //PUBLICAR NO FEED */}
-                    <div className="d-flex">
+                    <div className="d-flex flex-column">
                       <div className="d-flex">
                       {/* <!-- LOGO/IMAGEM --> */}
                       <div
@@ -444,12 +444,12 @@ export default function Home() {
                             EM DEFESA AOS ANIMAIS, APOIE ESSA CAUSA!
                             </h6>
                             
-                        <div>
-                        <p className="text-wrap">
-                          Silvestre não é pet! DIGA NÃO AO TRÁFICO DE ANIMAIS.
-                          Tráfico de animais é crime, Denuncie!
-                        </p>
-                        </div>
+                            <div>
+                            <p className="text-wrap">
+                              Silvestre não é pet! DIGA NÃO AO TRÁFICO DE ANIMAIS.
+                              Tráfico de animais é crime, Denuncie!
+                            </p>
+                            </div>
 
                         <FeedCarousel />
                         <div id="div_botoes">

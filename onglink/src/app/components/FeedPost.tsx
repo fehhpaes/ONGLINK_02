@@ -77,17 +77,21 @@ const FeedPost: FC<FeedPostProps> = ({ post }) => {
         </a>
       </div>
       {/* Conteúdo da Postagem */}
-     <div className="feed-content">
+     <div className="feed-content h-100 w-100">
         <h3>{post.title}</h3>
         <p>{post.message}</p>
         {imageURL && (
-          <img
-            src={imageURL}
-            alt="Imagem da publicação"
-            style={{ maxWidth: "100%", marginTop: 8 }}
-          />
+          <div>
+            <img
+              src={imageURL}
+              alt="Imagem da publicação"
+              style={{ maxWidth: "auto", marginTop: 8, height:"auto"}}
+              //className="w-full h-full object-cover"
+              
+            />
+          </div>
         )}
-        <div id="div_botoes">
+        <div id="div_botoes" className="d-flex h-100 w-100 justify-content-center">
                         <Button variant="success" title="Curtir">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
