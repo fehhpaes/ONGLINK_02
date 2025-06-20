@@ -103,14 +103,16 @@ export default function Footer() {
         <div id='div_Copyright' className="ml-10 text-white">
             <p>© 2024 MUXN Company, Inc. All rights reserved.</p>
         </div>
-
-            <div id='div_redes_sociais'>
+        <div className='w-50'></div>
+            <div className='d-flex mr-4'
+            >
                 <Image src={logo_twitter}
                 alt="Logo Twitter"
                 width={24} // Largura em pixels
                 height={24} // Altura em pixels
-                className="shadow-md ml-4 mt-1 mb-7">
-                
+                className="shadow-md ml-4 mt-1 mb-7"
+                style={{ minWidth: "24px", minHeight: "24" }}>
+                 
                 </Image>
                 
                 
