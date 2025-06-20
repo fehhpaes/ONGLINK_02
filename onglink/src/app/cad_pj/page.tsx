@@ -1,7 +1,9 @@
 'use client';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
-import Header_cadastro from "@/src/app/components/header_cadastro";
+import Header_home from "@/src/app/components/header_home";
+import '@/src/app/CSS/home.css'
+import '@/src/app/CSS/header_alt.css'
 import { CepResponse, getCepData } from '../services/cep';
 import { Field, Form, Formik } from "formik";
 import * as Yup from 'yup';
@@ -65,7 +67,7 @@ export default function Cad_pj() {
 
     return (
         <>
-        <Header_cadastro/>
+        <Header_home/>
         <body className='bg-verde1'>
             <main className="bg-verde2 min-h-screen flex items-center justify-center p-4 mt-4 mb-4">
                 <div className="bg-white rounded-3xl border-4 p-6 w-full max-w-4xl">   

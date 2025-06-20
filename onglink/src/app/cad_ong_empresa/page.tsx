@@ -7,7 +7,9 @@ import logo_facebook from '@/src/app/img/icons/social_12942738.png';
 import logo_linkedin from '@/src/app/img/icons/linkedin_3536569.png';
 import { useState, useRef, ChangeEvent } from 'react';
 import { Button } from "react-bootstrap";
-import Header_cadastro from "@/src/app/components/header_cadastro";
+import Header_home from "@/src/app/components/header_home";
+import '@/src/app/CSS/home.css'
+import '@/src/app/CSS/header_alt.css'
 import Input from '../components/inputFormulario';
 import { useRouter } from "next/navigation";
 
@@ -157,7 +159,7 @@ const Cadastro_02 = () => {
     return (
         <>
             {/* Componente de cabeçalho */}
-            <Header_cadastro/>
+            <Header_home/>
 
             <body className='bg-verde1'>
                 <main className="bg-verde2 min-h-screen flex items-center justify-center p-4 mt-4 mb-4">
