@@ -452,7 +452,7 @@ export default function Home() {
                             </div>
 
                         <FeedCarousel />
-                        <div id="div_botoes">
+                        <div id="div_botoes" className=" justify-self-center">
                           <Button variant="success" title="Curtir">
                             <svg
                               xmlns="http://www.w3.org/2000/svg"

@@ -91,7 +91,7 @@ const FeedPost: FC<FeedPostProps> = ({ post }) => {
             />
           </div>
         )}
-        <div id="div_botoes" className="d-flex h-100 w-100 justify-content-center">
+        <div id="div_botoes" className=" h-100 w-100 justify-content-center">
                         <Button variant="success" title="Curtir">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
