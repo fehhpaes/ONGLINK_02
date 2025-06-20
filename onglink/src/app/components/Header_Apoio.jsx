@@ -15,6 +15,7 @@ export default function Header_Apoio() {
           <Link href="/feed">
             <Image
               className="border"
+              style={{minWidth:"100px"}}
               src={logo_onglink_01}
               alt="Logo ONGLink"
               width={150}
